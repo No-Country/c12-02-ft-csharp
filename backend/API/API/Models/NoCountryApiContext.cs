@@ -4,13 +4,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace API.Models;
 
-public partial class ApiContext : DbContext
+public partial class NoCountryApiContext : DbContext
 {
-    public ApiContext()
+    public NoCountryApiContext()
     {
     }
 
-    public ApiContext(DbContextOptions<ApiContext> options)
+    public NoCountryApiContext(DbContextOptions<NoCountryApiContext> options)
         : base(options)
     {
     }
@@ -39,13 +39,13 @@ public partial class ApiContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Server=DESKTOP-9CON5HP\\SQLEXPRESS ; Database=api ; Trusted_connection=true ; MultipleActiveResultSets=true ; TrustServerCertificate=true");
+        => optionsBuilder.UseSqlServer("Server=nocountryserver.database.windows.net ; Database=NoCountryAPI ; User ID=NoCountryAdmin ; Password=c12-02-ft-csharp ; Encrypt=True; Trusted_connection=False ; MultipleActiveResultSets=true ; TrustServerCertificate=False ; Connection Timeout=30");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Categorium>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Categori__3214EC075A5AD068");
+            entity.HasKey(e => e.Id).HasName("PK__Categori__3214EC07CB2FD1E9");
 
             entity.Property(e => e.Nombre)
                 .HasMaxLength(40)
@@ -54,7 +54,7 @@ public partial class ApiContext : DbContext
 
         modelBuilder.Entity<Domicilio>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Domicili__3214EC076E179E37");
+            entity.HasKey(e => e.Id).HasName("PK__Domicili__3214EC074B5E5420");
 
             entity.ToTable("Domicilio");
 
@@ -74,12 +74,12 @@ public partial class ApiContext : DbContext
             entity.HasOne(d => d.IdUsuarioNavigation).WithMany(p => p.Domicilios)
                 .HasForeignKey(d => d.IdUsuario)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Domicilio__IdUsu__7C1A6C5A");
+                .HasConstraintName("FK__Domicilio__IdUsu__58D1301D");
         });
 
         modelBuilder.Entity<Marca>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Marca__3214EC072D165B1B");
+            entity.HasKey(e => e.Id).HasName("PK__Marca__3214EC07113A4638");
 
             entity.ToTable("Marca");
 
@@ -90,7 +90,7 @@ public partial class ApiContext : DbContext
 
         modelBuilder.Entity<MetodoPago>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__MetodoPa__3214EC0733E851B4");
+            entity.HasKey(e => e.Id).HasName("PK__MetodoPa__3214EC078A2F4DE8");
 
             entity.ToTable("MetodoPago");
 
@@ -101,29 +101,29 @@ public partial class ApiContext : DbContext
 
         modelBuilder.Entity<Orden>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Orden__3214EC0705373F6C");
+            entity.HasKey(e => e.Id).HasName("PK__Orden__3214EC076581DD12");
 
             entity.ToTable("Orden");
 
             entity.HasOne(d => d.IdDomicilioNavigation).WithMany(p => p.Ordens)
                 .HasForeignKey(d => d.IdDomicilio)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Orden__IdDomicil__7FEAFD3E");
+                .HasConstraintName("FK__Orden__IdDomicil__662B2B3B");
 
             entity.HasOne(d => d.IdMetodoPagoNavigation).WithMany(p => p.Ordens)
                 .HasForeignKey(d => d.IdMetodoPago)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Orden__IdMetodoP__00DF2177");
+                .HasConstraintName("FK__Orden__IdMetodoP__671F4F74");
 
             entity.HasOne(d => d.IdUsuarioNavigation).WithMany(p => p.Ordens)
                 .HasForeignKey(d => d.IdUsuario)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Orden__IdUsuario__7EF6D905");
+                .HasConstraintName("FK__Orden__IdUsuario__65370702");
         });
 
         modelBuilder.Entity<OrdenDetalle>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__OrdenDet__3214EC07D23D5BFF");
+            entity.HasKey(e => e.Id).HasName("PK__OrdenDet__3214EC0711E927BD");
 
             entity.ToTable("OrdenDetalle");
 
@@ -132,17 +132,17 @@ public partial class ApiContext : DbContext
             entity.HasOne(d => d.IdOrdenNavigation).WithMany(p => p.OrdenDetalles)
                 .HasForeignKey(d => d.IdOrden)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__OrdenDeta__IdOrd__1209AD79");
+                .HasConstraintName("FK__OrdenDeta__IdOrd__6AEFE058");
 
             entity.HasOne(d => d.IdProductoNavigation).WithMany(p => p.OrdenDetalles)
                 .HasForeignKey(d => d.IdProducto)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__OrdenDeta__IdPro__12FDD1B2");
+                .HasConstraintName("FK__OrdenDeta__IdPro__6BE40491");
         });
 
         modelBuilder.Entity<Persona>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Persona__3214EC07F02F8FCE");
+            entity.HasKey(e => e.Id).HasName("PK__Persona__3214EC07E1D18BB8");
 
             entity.ToTable("Persona");
 
@@ -164,7 +164,7 @@ public partial class ApiContext : DbContext
 
         modelBuilder.Entity<Producto>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Producto__3214EC07CFDFDFEB");
+            entity.HasKey(e => e.Id).HasName("PK__Producto__3214EC07B863F607");
 
             entity.ToTable("Producto");
 
@@ -182,17 +182,17 @@ public partial class ApiContext : DbContext
             entity.HasOne(d => d.IdCaterogiaNavigation).WithMany(p => p.Productos)
                 .HasForeignKey(d => d.IdCaterogia)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Producto__IdCate__6E01572D");
+                .HasConstraintName("FK__Producto__IdCate__4C6B5938");
 
             entity.HasOne(d => d.IdMarcaNavigation).WithMany(p => p.Productos)
                 .HasForeignKey(d => d.IdMarca)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Producto__IdMarc__6EF57B66");
+                .HasConstraintName("FK__Producto__IdMarc__4D5F7D71");
         });
 
         modelBuilder.Entity<RecuperacionContrasena>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Recupera__3214EC07F32644C8");
+            entity.HasKey(e => e.Id).HasName("PK__Recupera__3214EC07A0147758");
 
             entity.ToTable("RecuperacionContrasena");
 
@@ -206,12 +206,12 @@ public partial class ApiContext : DbContext
             entity.HasOne(d => d.IdUsuarioNavigation).WithMany(p => p.RecuperacionContrasenas)
                 .HasForeignKey(d => d.IdUsuario)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Recuperac__IdUsu__03BB8E22");
+                .HasConstraintName("FK__Recuperac__IdUsu__5BAD9CC8");
         });
 
         modelBuilder.Entity<TipoUsuario>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__TipoUsua__3214EC07D462E1D6");
+            entity.HasKey(e => e.Id).HasName("PK__TipoUsua__3214EC07B049A4D2");
 
             entity.ToTable("TipoUsuario");
 
@@ -222,7 +222,7 @@ public partial class ApiContext : DbContext
 
         modelBuilder.Entity<Usuario>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__Usuario__3214EC07D1907C29");
+            entity.HasKey(e => e.Id).HasName("PK__Usuario__3214EC078ED258BE");
 
             entity.ToTable("Usuario");
 
@@ -239,13 +239,14 @@ public partial class ApiContext : DbContext
             entity.HasOne(d => d.IdPersonaNavigation).WithMany(p => p.Usuarios)
                 .HasForeignKey(d => d.IdPersona)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Usuario__IdPerso__756D6ECB");
+                .HasConstraintName("FK__Usuario__IdPerso__498EEC8D");
 
             entity.HasOne(d => d.IdTipoNavigation).WithMany(p => p.Usuarios)
                 .HasForeignKey(d => d.IdTipo)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__Usuario__IdTipo__74794A92");
+                .HasConstraintName("FK__Usuario__IdTipo__489AC854");
         });
+        modelBuilder.HasSequence<int>("SalesOrderNumber", "SalesLT");
 
         OnModelCreatingPartial(modelBuilder);
     }
