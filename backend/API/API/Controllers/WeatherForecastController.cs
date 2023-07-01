@@ -18,8 +18,6 @@ namespace API.Controllers
             _logger = logger;
         }
 
-
-
         [HttpGet(Name = "GetWeatherForecast")]
         public IEnumerable<WeatherForecast> Get()
         {
