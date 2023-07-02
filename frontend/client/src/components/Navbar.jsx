@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { RiSearch2Line, RiMore2Fill, RiShoppingCartLine } from "react-icons/ri";
-export const NavBar = () => {
+export const Navbar = () => {
   return (
     <>
       <nav className="bg-gray-300 border-gray-200 ">
