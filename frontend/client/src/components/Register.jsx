@@ -1,11 +1,21 @@
-import { RiMailLine, RiEyeOffLine } from "react-icons/ri";
+import { RiMailLine, RiEyeOffLine, RiUser3Line } from "react-icons/ri";
 import { useForm } from "react-hook-form";
-export const Login = () => {
+import { Link } from "react-router-dom";
+export const Register = () => {
   const {
     register,
     handleSubmit,
+    watch,
     formState: { errors }
   } = useForm();
+
+  const password = watch("password");
+  //const passwordConfirm = watch("passwordConfirm");
+
+  const validatePass = value => {
+    if (value === password) return true;
+    return "las contraseñas no coinciden";
+  };
 
   const onSubmit = e => {
     console.log(e);
@@ -24,19 +34,18 @@ export const Login = () => {
                     </h2>
                     <div className="inline-flex items-center w-full">
                       <h3 className="text-lg font-bold text-neutral-600 l eading-6 lg:text-3xl">
-                        Iniciar sesión
+                        Crea una cuenta
                       </h3>
                     </div>
                     <div className="flex items-center my-4">
-                      <h3 className="text-gray-600 text-sm mr-2">¿No tienes una cuenta? </h3>
-                      <a
-                        href="#"
+                      <h3 className="text-gray-600 text-sm mr-2">¿Ya tienes una cuenta? </h3>
+                      <Link
+                        to="/login"
                         type="button"
-                        className=" md:text-sm font-medium text-gray-600 focus:outline-none hover:text-neutral-600 focus:text-blue-600 sm:text-sm underline"
-                      >
+                        className=" md:text-sm font-medium text-gray-600 focus:outline-none hover:text-neutral-600 focus:text-blue-600 sm:text-sm underline">
                         {" "}
-                        Registrate{" "}
-                      </a>
+                        Iniciar Sesión{" "}
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -44,15 +53,42 @@ export const Login = () => {
                 <form action="" onSubmit={handleSubmit(onSubmit)}>
                   <div className="mt-6 space-y-2">
                     <div className="flex flex-col">
-                      <div className="relative flex items-center mb-2">
+                      <div className="relative flex items-center mb-4">
                         <label
-                          htmlFor="email"
-                          className="absolute -top-3 left-2 px-1 bg-white text-gray-600 text-sm mx-2"
-                        >
-                          Email
+                          htmlFor="nombre"
+                          className="absolute -top-3 left-2 px-1 bg-white text-gray-600 text-sm mx-2">
+                          Nombre
                         </label>
                         <input
                           type="text"
+                          name="email"
+                          id="email"
+                          className="block w-full px-5 py-3 text-base text-neutral-600 transition duration-500 ease-in-out rounded-lg bg-gray-50  border border-gray-300  focus:outline-none focus:border-blue-500"
+                          placeholder="Ingresar correo"
+                          {...register("nombre", {
+                            required: {
+                              value: true,
+                              message: "El nombre es requerido"
+                            }
+                          })}
+                        />
+                        <span className="absolute right-2 text-gray-400 text-lg">
+                          <RiUser3Line />
+                        </span>
+                      </div>
+                      {errors.nombre && (
+                        <div className="mb-4">
+                          <span className="text-red-400">{errors.nombre.message}</span>
+                        </div>
+                      )}
+                      <div className="relative flex items-center mb-2">
+                        <label
+                          htmlFor="email"
+                          className="absolute -top-3 left-2 px-1 bg-white text-gray-600 text-sm mx-2">
+                          Email
+                        </label>
+                        <input
+                          type="email"
                           name="email"
                           id="email"
                           className="block w-full px-5 py-3 text-base text-neutral-600 transition duration-500 ease-in-out rounded-lg bg-gray-50  border border-gray-300  focus:outline-none focus:border-blue-500"
@@ -83,9 +119,8 @@ export const Login = () => {
                       <div className="relative flex items-center mb-2">
                         <label
                           htmlFor="password"
-                          className="absolute -top-3 left-2 px-1 bg-white text-gray-600 text-sm mx-2"
-                        >
-                          Password
+                          className="absolute -top-3 left-2 px-1 bg-white text-gray-600 text-sm mx-2">
+                          Contraseña
                         </label>
                         <input
                           type="password"
@@ -93,7 +128,7 @@ export const Login = () => {
                           id="password"
                           className="block w-full px-5 py-3 text-base text-neutral-600 transition duration-500 ease-in-out rounded-lg bg-gray-50  border border-gray-300  focus:outline-none focus:border-blue-500"
                           placeholder="Ingresar contraseña"
-                          {...register("pass", {
+                          {...register("password", {
                             required: {
                               value: true,
                               message: "La contraseña es requerida"
@@ -108,26 +143,52 @@ export const Login = () => {
                           <RiEyeOffLine />
                         </span>
                       </div>
-                      {errors.pass && (
+                      {errors.password && (
+                        <div className="mb-4">
+                          <span className="text-red-400">{errors.password.message}</span>
+                        </div>
+                      )}
+                    </div>
+                    <div className="flex flex-col">
+                      <div className="relative flex items-center mb-2">
+                        <label
+                          htmlFor="password"
+                          className="absolute -top-3 left-2 px-1 bg-white text-gray-600 text-sm mx-2">
+                          Repetir Contraseña
+                        </label>
+                        <input
+                          type="password"
+                          name="passwordConfirm"
+                          id="passwordConfirm"
+                          className="block w-full px-5 py-3 text-base text-neutral-600 transition duration-500 ease-in-out rounded-lg bg-gray-50  border border-gray-300  focus:outline-none focus:border-blue-500"
+                          placeholder="Ingresar contraseña"
+                          {...register("passwordConfirm", {
+                            required: {
+                              value: true,
+                              message: "La contraseña es requerida"
+                            },
+                            minLength: {
+                              value: 8,
+                              message: "La contraseña debe tener al menos 8 caracteres"
+                            },
+                            validate: validatePass
+                          })}
+                        />
+                        <span className="absolute right-2 text-gray-400 text-lg">
+                          <RiEyeOffLine />
+                        </span>
+                      </div>
+                      {errors.passwordConfirm && (
                         <div>
-                          <span className="text-red-400">{errors.pass.message}</span>
+                          <span className="text-red-400">{errors.passwordConfirm.message}</span>
                         </div>
                       )}
                     </div>
                     <div className="flex flex-col mt-4 lg:space-y-2">
-                      <a
-                        href="#"
-                        type="button"
-                        className="inline-flex justify-end py-4 md:text-xs font-medium text-gray-500 focus:outline-none hover:text-neutral-600 focus:text-blue-600 sm:text-sm"
-                      >
-                        {" "}
-                        ¿Has olvidado la contraseña?{" "}
-                      </a>
                       <button
                         type="submit"
-                        className="flex items-center justify-center w-full px-10 py-4 text-base font-medium text-center text-white transition duration-500 ease-in-out transhtmlForm bg-blue-600 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-                      >
-                        Iniciar sesión
+                        className="flex items-center justify-center w-full px-10 py-4 text-base font-medium text-center text-white transition duration-500 ease-in-out transhtmlForm bg-blue-600 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                        Registrarte
                       </button>
                     </div>
                   </div>
@@ -143,20 +204,17 @@ export const Login = () => {
                 <div>
                   <button
                     type="submit"
-                    className="w-full items-center block px-10 py-3.5 text-base font-medium text-center text-blue-600 transition duration-500 ease-in-out transform border-2 border-white shadow-md rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
-                  >
+                    className="w-full items-center block px-10 py-3.5 text-base font-medium text-center text-blue-600 transition duration-500 ease-in-out transform border-2 border-white shadow-md rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
                     <div className="flex items-center justify-center">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         xmlnsXlink="http://www.w3.org/1999/xlink"
                         className="w-6 h-6"
-                        viewBox="0 0 48 48"
-                      >
+                        viewBox="0 0 48 48">
                         <defs>
                           <path
                             id="a"
-                            d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z"
-                          ></path>
+                            d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z"></path>
                         </defs>
                         <clipPath id="b">
                           <use xlinkHref="#a" overflow="visible"></use>
@@ -165,13 +223,11 @@ export const Login = () => {
                         <path
                           clipPath="url(#b)"
                           fill="#EA4335"
-                          d="M0 11l17 13 7-6.1L48 14V0H0z"
-                        ></path>
+                          d="M0 11l17 13 7-6.1L48 14V0H0z"></path>
                         <path
                           clipPath="url(#b)"
                           fill="#34A853"
-                          d="M0 37l30-23 7.9 1L48 0v48H0z"
-                        ></path>
+                          d="M0 37l30-23 7.9 1L48 0v48H0z"></path>
                         <path clipPath="url(#b)" fill="#4285F4" d="M48 48L17 24l-4-3 35-10z"></path>
                       </svg>
                       <span className="ml-4 text-sm"> Iniciar sesión con Google</span>
