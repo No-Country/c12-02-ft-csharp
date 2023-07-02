@@ -1,9 +1,10 @@
 import "./App.css";
+import { NavBar } from "./components/navBar";
 
 function App() {
   return (
     <>
-      <h1 className="text-3xl text-gray-600">Tienda On-Line</h1>
+      <NavBar/>
     </>
   );
 }
