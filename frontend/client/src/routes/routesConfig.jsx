@@ -1,5 +1,6 @@
 import App from "../App.jsx";
 import { Login } from "../components/Login.jsx";
+import { Register } from "../components/Register.jsx";
 
 const routes = [
   {
@@ -9,6 +10,10 @@ const routes = [
   {
     path: "/login",
     element: <Login />
+  },
+  {
+    path: "/register",
+    element: <Register />
   }
 ];
 
