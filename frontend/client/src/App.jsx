@@ -1,11 +1,15 @@
-import "./App.css";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
 
-function App() {
-  return (
-    <>
-      <h1 className="text-3xl text-gray-600">Tienda On-Line</h1>
-    </>
-  );
-}
+const routes = [
+  {
+    path: "/",
+    element: <Home />
+  },
+  {
+    path: "/login",
+    element: <Login />
+  }
+];
 
-export default App;
+export default routes;
