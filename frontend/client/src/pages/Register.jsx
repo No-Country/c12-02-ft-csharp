@@ -1,21 +1,26 @@
-import { RiMailLine, RiEyeOffLine } from "react-icons/ri";
+import { RiMailLine, RiEyeOffLine, RiUser3Line } from "react-icons/ri";
 import { useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
 
-function Login() {
-  const form = useForm({
-    defaultValues: {
-      email: "",
-      password: ""
-    }
-  });
-  const { register, handleSubmit, reset, formState } = form;
-  const { errors } = formState;
+function Register() {
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors }
+  } = useForm();
+
+  const password = watch("password");
+  //const passwordConfirm = watch("passwordConfirm");
+
+  const validatePass = value => {
+    if (value === password) return true;
+    return "las contraseñas no coinciden";
+  };
 
   const onSubmit = e => {
     console.log(e);
-    reset();
   };
-
   return (
     <>
       <section className="mt-10">
@@ -30,18 +35,18 @@ function Login() {
                     </h2>
                     <div className="inline-flex items-center w-full">
                       <h3 className="text-lg font-bold text-neutral-600 l eading-6 lg:text-3xl">
-                        Iniciar sesión
+                        Crea una cuenta
                       </h3>
                     </div>
                     <div className="flex items-center my-4">
-                      <h3 className="text-gray-600 text-sm mr-2">¿No tienes una cuenta? </h3>
-                      <a
-                        href="#"
+                      <h3 className="text-gray-600 text-sm mr-2">¿Ya tienes una cuenta? </h3>
+                      <Link
+                        to="/login"
                         type="button"
                         className=" md:text-sm font-medium text-gray-600 focus:outline-none hover:text-neutral-600 focus:text-blue-600 sm:text-sm underline">
                         {" "}
-                        Registrate{" "}
-                      </a>
+                        Iniciar Sesión{" "}
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -49,6 +54,34 @@ function Login() {
                 <form action="" onSubmit={handleSubmit(onSubmit)}>
                   <div className="mt-6 space-y-2">
                     <div className="flex flex-col">
+                      <div className="relative flex items-center mb-4">
+                        <label
+                          htmlFor="nombre"
+                          className="absolute -top-3 left-2 px-1 bg-white text-gray-600 text-sm mx-2">
+                          Nombre
+                        </label>
+                        <input
+                          type="text"
+                          name="email"
+                          id="email"
+                          className="block w-full px-5 py-3 text-base text-neutral-600 transition duration-500 ease-in-out rounded-lg bg-gray-50  border border-gray-300  focus:outline-none focus:border-blue-500"
+                          placeholder="Ingresar correo"
+                          {...register("nombre", {
+                            required: {
+                              value: true,
+                              message: "El nombre es requerido"
+                            }
+                          })}
+                        />
+                        <span className="absolute right-2 text-gray-400 text-lg">
+                          <RiUser3Line />
+                        </span>
+                      </div>
+                      {errors.nombre && (
+                        <div className="mb-4">
+                          <span className="text-red-400">{errors.nombre.message}</span>
+                        </div>
+                      )}
                       <div className="relative flex items-center mb-2">
                         <label
                           htmlFor="email"
@@ -56,7 +89,7 @@ function Login() {
                           Email
                         </label>
                         <input
-                          type="text"
+                          type="email"
                           name="email"
                           id="email"
                           className="block w-full px-5 py-3 text-base text-neutral-600 transition duration-500 ease-in-out rounded-lg bg-gray-50  border border-gray-300  focus:outline-none focus:border-blue-500"
@@ -88,7 +121,7 @@ function Login() {
                         <label
                           htmlFor="password"
                           className="absolute -top-3 left-2 px-1 bg-white text-gray-600 text-sm mx-2">
-                          Password
+                          Contraseña
                         </label>
                         <input
                           type="password"
@@ -111,24 +144,52 @@ function Login() {
                           <RiEyeOffLine />
                         </span>
                       </div>
-                      {errors.pass && (
+                      {errors.password && (
+                        <div className="mb-4">
+                          <span className="text-red-400">{errors.password.message}</span>
+                        </div>
+                      )}
+                    </div>
+                    <div className="flex flex-col">
+                      <div className="relative flex items-center mb-2">
+                        <label
+                          htmlFor="password"
+                          className="absolute -top-3 left-2 px-1 bg-white text-gray-600 text-sm mx-2">
+                          Repetir Contraseña
+                        </label>
+                        <input
+                          type="password"
+                          name="passwordConfirm"
+                          id="passwordConfirm"
+                          className="block w-full px-5 py-3 text-base text-neutral-600 transition duration-500 ease-in-out rounded-lg bg-gray-50  border border-gray-300  focus:outline-none focus:border-blue-500"
+                          placeholder="Ingresar contraseña"
+                          {...register("passwordConfirm", {
+                            required: {
+                              value: true,
+                              message: "La contraseña es requerida"
+                            },
+                            minLength: {
+                              value: 8,
+                              message: "La contraseña debe tener al menos 8 caracteres"
+                            },
+                            validate: validatePass
+                          })}
+                        />
+                        <span className="absolute right-2 text-gray-400 text-lg">
+                          <RiEyeOffLine />
+                        </span>
+                      </div>
+                      {errors.passwordConfirm && (
                         <div>
-                          <span className="text-red-400">{errors.pass.message}</span>
+                          <span className="text-red-400">{errors.passwordConfirm.message}</span>
                         </div>
                       )}
                     </div>
                     <div className="flex flex-col mt-4 lg:space-y-2">
-                      <a
-                        href="#"
-                        type="button"
-                        className="inline-flex justify-end py-4 md:text-xs font-medium text-gray-500 focus:outline-none hover:text-neutral-600 focus:text-blue-600 sm:text-sm">
-                        {" "}
-                        ¿Has olvidado la contraseña?{" "}
-                      </a>
                       <button
                         type="submit"
                         className="flex items-center justify-center w-full px-10 py-4 text-base font-medium text-center text-white transition duration-500 ease-in-out transhtmlForm bg-blue-600 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                        Iniciar sesión
+                        Registrarte
                       </button>
                     </div>
                   </div>
@@ -190,4 +251,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Register;
