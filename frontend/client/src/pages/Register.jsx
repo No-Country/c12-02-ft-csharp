@@ -1,7 +1,8 @@
 import { RiMailLine, RiEyeOffLine, RiUser3Line } from "react-icons/ri";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
-export const Register = () => {
+
+function Register() {
   const {
     register,
     handleSubmit,
@@ -248,4 +249,6 @@ export const Register = () => {
       </section>
     </>
   );
-};
+}
+
+export default Register;

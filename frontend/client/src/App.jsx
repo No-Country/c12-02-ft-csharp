@@ -1,12 +1,20 @@
-import "./App.css";
-import { NavBar } from "./components/navBar";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
 
-function App() {
-  return (
-    <>
-      <NavBar/>
-    </>
-  );
-}
+const routes = [
+  {
+    path: "/",
+    element: <Home />
+  },
+  {
+    path: "/login",
+    element: <Login />
+  },
+  {
+    path: "/register",
+    element: <Register />
+  }
+];
 
-export default App;
+export default routes;
