@@ -1,3 +1,4 @@
+import {Link} from "react-router-dom"
 function LoginTitle() {
   return (
     <div>
@@ -12,13 +13,13 @@ function LoginTitle() {
         </div>
         <div className="flex items-center my-4">
           <h3 className="text-gray-600 text-sm mr-2">¿No tienes una cuenta? </h3>
-          <a
-            href="#"
+          <Link
+            to="/register"
             type="button"
             className=" md:text-sm font-medium text-gray-600 focus:outline-none hover:text-neutral-600 focus:text-blue-600 sm:text-sm underline">
             {" "}
             Registrate{" "}
-          </a>
+          </Link>
         </div>
       </div>
     </div>

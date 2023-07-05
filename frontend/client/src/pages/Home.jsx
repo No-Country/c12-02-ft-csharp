@@ -1,9 +1,9 @@
-import { NavBar } from "../components/Navbar";
+import { Navbar } from "../components/Navbar";
 
 function Home() {
   return (
     <>
-      <NavBar />
+      <Navbar />
     </>
   );
 }
