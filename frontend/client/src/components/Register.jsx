@@ -69,7 +69,7 @@ export const Register = () => {
                             required: {
                               value: true,
                               message: "El nombre es requerido"
-                            }
+                            },
                           })}
                         />
                         <span className="absolute right-2 text-gray-400 text-lg">
@@ -100,8 +100,8 @@ export const Register = () => {
                             },
                             pattern: {
                               value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-                              message: "El formato no es correcto"
-                            }
+                              message: "El formato no es correcto",
+                            },
                           })}
                         />
                         <span className="absolute right-2 text-gray-400 text-lg">

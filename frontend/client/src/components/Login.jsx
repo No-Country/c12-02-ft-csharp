@@ -1,5 +1,6 @@
 import { RiMailLine, RiEyeOffLine } from "react-icons/ri";
 import { useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
 export const Login = () => {
   const {
     register,
@@ -20,7 +21,7 @@ export const Login = () => {
                 <div>
                   <div className="mt-3 text-left sm:mt-2">
                     <h2 className="text-lg font-bold text-neutral-600 l eading-6 lg:text-xl mb-2">
-                      Tienda Online
+                      LaTech-Shop
                     </h2>
                     <div className="inline-flex items-center w-full">
                       <h3 className="text-lg font-bold text-neutral-600 l eading-6 lg:text-3xl">
@@ -29,14 +30,14 @@ export const Login = () => {
                     </div>
                     <div className="flex items-center my-4">
                       <h3 className="text-gray-600 text-sm mr-2">¿No tienes una cuenta? </h3>
-                      <a
-                        href="#"
+                      <Link
+                        to="/register"
                         type="button"
-                        className=" md:text-sm font-medium text-gray-600 focus:outline-none hover:text-neutral-600 focus:text-blue-600 sm:text-sm underline"
+                        className=" md:text-sm font-medium text-gray-600 focus:outline-none hover:text-neutral-600 focus:text-indigo-600 sm:text-sm underline"
                       >
                         {" "}
                         Registrate{" "}
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -125,7 +126,7 @@ export const Login = () => {
                       </a>
                       <button
                         type="submit"
-                        className="flex items-center justify-center w-full px-10 py-4 text-base font-medium text-center text-white transition duration-500 ease-in-out transhtmlForm bg-blue-600 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                        className="flex items-center justify-center w-full px-10 py-4 text-base font-medium text-center text-white transition duration-500 ease-in-out transhtmlForm bg-indigo-600 rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                       >
                         Iniciar sesión
                       </button>
@@ -143,7 +144,7 @@ export const Login = () => {
                 <div>
                   <button
                     type="submit"
-                    className="w-full items-center block px-10 py-3.5 text-base font-medium text-center text-blue-600 transition duration-500 ease-in-out transform border-2 border-white shadow-md rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
+                    className="w-full items-center block px-10 py-3.5 text-base font-medium text-center text-indigo-600 transition duration-500 ease-in-out transform border-2 border-white shadow-md rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
                   >
                     <div className="flex items-center justify-center">
                       <svg
