@@ -3910,24 +3910,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Yo\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\ramir\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Yo\\Documents\\GitHub\\c12-02-ft-csharp\\backend\\API\\API\\API.csproj",
+      "projectUniqueName": "C:\\Users\\ramir\\OneDrive\\Escritorio\\backoff\\c12-02-ft-csharp\\backend\\API\\API\\API.csproj",
       "projectName": "API",
-      "projectPath": "C:\\Users\\Yo\\Documents\\GitHub\\c12-02-ft-csharp\\backend\\API\\API\\API.csproj",
-      "packagesPath": "C:\\Users\\Yo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Yo\\Documents\\GitHub\\c12-02-ft-csharp\\backend\\API\\API\\obj\\",
+      "projectPath": "C:\\Users\\ramir\\OneDrive\\Escritorio\\backoff\\c12-02-ft-csharp\\backend\\API\\API\\API.csproj",
+      "packagesPath": "C:\\Users\\ramir\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ramir\\OneDrive\\Escritorio\\backoff\\c12-02-ft-csharp\\backend\\API\\API\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Yo\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\ramir\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -3935,8 +3930,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
-        "C:\\Program Files\\dotnet\\sdk\\7.0.302\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -3993,7 +3986,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }
