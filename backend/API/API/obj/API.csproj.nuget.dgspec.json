@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ramir\\OneDrive\\Escritorio\\backoff\\c12-02-ft-csharp\\backend\\API\\API\\API.csproj": {}
+    "C:\\Users\\ramir\\OneDrive\\Escritorio\\API\\c12-02-ft-csharp\\backend\\API\\API\\API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ramir\\OneDrive\\Escritorio\\backoff\\c12-02-ft-csharp\\backend\\API\\API\\API.csproj": {
+    "C:\\Users\\ramir\\OneDrive\\Escritorio\\API\\c12-02-ft-csharp\\backend\\API\\API\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ramir\\OneDrive\\Escritorio\\backoff\\c12-02-ft-csharp\\backend\\API\\API\\API.csproj",
+        "projectUniqueName": "C:\\Users\\ramir\\OneDrive\\Escritorio\\API\\c12-02-ft-csharp\\backend\\API\\API\\API.csproj",
         "projectName": "API",
-        "projectPath": "C:\\Users\\ramir\\OneDrive\\Escritorio\\backoff\\c12-02-ft-csharp\\backend\\API\\API\\API.csproj",
+        "projectPath": "C:\\Users\\ramir\\OneDrive\\Escritorio\\API\\c12-02-ft-csharp\\backend\\API\\API\\API.csproj",
         "packagesPath": "C:\\Users\\ramir\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ramir\\OneDrive\\Escritorio\\backoff\\c12-02-ft-csharp\\backend\\API\\API\\obj\\",
+        "outputPath": "C:\\Users\\ramir\\OneDrive\\Escritorio\\API\\c12-02-ft-csharp\\backend\\API\\API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ramir\\AppData\\Roaming\\NuGet\\NuGet.Config",
