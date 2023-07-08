@@ -39,7 +39,7 @@ function Home() {
         </svg>
       </div>
       <ComponentHome title="Mejor Calificados" icon="🌟" reverse={false} />
-      <div>
+      <div className="my-6">
         <svg
           width="1512"
           height="150"
