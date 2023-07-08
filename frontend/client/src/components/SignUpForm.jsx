@@ -1,13 +1,14 @@
 import { useForm, FormProvider } from "react-hook-form";
 import LoginFormInput from "./LoginFormInput";
 import LoginFormSubmit from "./LoginFormSubmit";
-import LoginFormForgotPassword from "./LoginFormForgotPassword";
 
-function LoginForm() {
+function SignUpForm() {
   const form = useForm({
     defaultValues: {
+      name: "",
       email: "",
-      password: ""
+      password: "",
+      passwordConfirm: ""
     }
   });
   const { handleSubmit, reset } = form;
@@ -19,8 +20,19 @@ function LoginForm() {
 
   return (
     <FormProvider {...form}>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form action="" onSubmit={handleSubmit(onSubmit)}>
         <div className="mt-6 space-y-2">
+          <LoginFormInput
+            type="text"
+            placeholder="Ingrese su nombre"
+            label="Nombre"
+            id="name"
+            icon="user"
+            isRequired={true}
+            message="El Nombre es requerido"
+            pattern=""
+            patternMessage=""
+          />
           <LoginFormInput
             type="text"
             placeholder="Ingresar correo"
@@ -35,7 +47,7 @@ function LoginForm() {
           <LoginFormInput
             type="password"
             placeholder="Ingresar contraseña"
-            label="Password"
+            label="Contraseña"
             id="password"
             icon="password"
             isRequired={true}
@@ -43,8 +55,18 @@ function LoginForm() {
             pattern=""
             patternMessage=""
           />
+          <LoginFormInput
+            type="password"
+            placeholder="Ingresar contraseña"
+            label="Repetir contraseña"
+            id="passwordConfirm"
+            icon="password"
+            isRequired={true}
+            message="La contraseña es requerida"
+            pattern=""
+            patternMessage=""
+          />
           <div className="flex flex-col mt-4 lg:space-y-2">
-            <LoginFormForgotPassword />
             <LoginFormSubmit content={"Iniciar sesión"} />
           </div>
         </div>
@@ -52,4 +74,5 @@ function LoginForm() {
     </FormProvider>
   );
 }
-export default LoginForm;
+
+export default SignUpForm;

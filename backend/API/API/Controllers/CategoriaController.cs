@@ -1,5 +1,6 @@
 ﻿using API.Models;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -7,25 +8,22 @@ namespace API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ProductoController : ControllerBase
+    public class CategoriaController : ControllerBase
     {
-        // Encapsulacion
         private readonly NoCountryApiContext _dbcontext;
 
-        // referencia a las base de datos
-        public ProductoController( NoCountryApiContext context)
+        public CategoriaController( NoCountryApiContext context)
         {
             _dbcontext = context;
         }
 
-        // Mostrar todos los registros existentes
         [HttpGet]
-        [Route("Lista")]
+        [Route("Listar")]
         public IActionResult Listar()
         {
             try
             {
-               List<Producto> lista = _dbcontext.Productos.Include(e => e.IdMarcaNavigation).Include(p => p.IdCaterogiaNavigation).ToList();
+                List<Categorium> lista = _dbcontext.Categoria.ToList();
 
                 if (lista == null)
                 {
@@ -38,48 +36,45 @@ namespace API.Controllers
             }
             catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status200OK, new { mensaje = ex.Message});
+                return StatusCode(StatusCodes.Status200OK, new { mensaje = ex.Message });
             }
         }
 
-        // Mostrar los registros por id
         [HttpGet]
         [Route("Obtener/{id:long}")]
         public IActionResult Obtener(long id)
         {
-            Producto? oProducto = _dbcontext.Productos.Find(id);
+            Categorium? oCategoria = _dbcontext.Categoria.Find(id);
 
-
-            if (oProducto == null)
+            if (oCategoria == null)
+            {
                 return BadRequest("Producto no encontrado");
-
+            }
+            
             try
             {
-                oProducto = _dbcontext.Productos.Include(e => e.IdMarcaNavigation)
-                                                .Include(p => p.IdCaterogiaNavigation)
-                                                .Where(c => c.Id == id).FirstOrDefault();
-
-                return Ok(oProducto);
-
+                oCategoria = _dbcontext.Categoria.Where(c => c.Id == id).FirstOrDefault();
+                
+                return Ok(oCategoria);
             }
             catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status200OK, new { mensaje = ex.Message});
+                return StatusCode(StatusCodes.Status200OK, new { mensaje = ex.Message });
             }
+
+
         }
 
-        // Agregar un registro a la base de datos
         [HttpPost]
         [Route("Guardar")]
-        public IActionResult Guardar([FromBody] Producto producto)
+        public IActionResult Guardar([FromBody] Categorium categoria)
         {
             try
             {
-                _dbcontext.Productos.Add(producto);
+                _dbcontext.Categoria.Add(categoria);
                 _dbcontext.SaveChanges();
 
-                return StatusCode(StatusCodes.Status200OK, new { mensaje = "Ok"});
-
+                return StatusCode(StatusCodes.Status200OK, new { mensaje = "Ok" });
             }
             catch (Exception ex)
             {
@@ -87,48 +82,46 @@ namespace API.Controllers
             }
         }
 
-        // Editar un registro existente de en la base de datos
         [HttpPut]
         [Route("Editar")]
-        public IActionResult Editar([FromBody] Producto producto)
+        public IActionResult Editar([FromBody] Categorium categoria)
         {
-            Producto? oProducto = _dbcontext.Productos.Find(producto.Id);
+            Categorium? oCategoria = _dbcontext.Categoria.Find(categoria.Id);
 
-            if (oProducto == null)
+            if (oCategoria == null)
             {
                 return BadRequest("Producto no encontrado");
             }
 
             try
             {
-                oProducto.Nombre = producto.Nombre is null ? oProducto.Nombre : producto.Nombre;
+                oCategoria.Nombre = categoria.Nombre is null ? oCategoria.Nombre : categoria.Nombre;
 
-
-                _dbcontext.Productos.Update(oProducto);
+                _dbcontext.Categoria.Update(oCategoria);
                 _dbcontext.SaveChanges();
 
-                return StatusCode(StatusCodes.Status200OK, new {mensaje = "Ok"});
+                return StatusCode(StatusCodes.Status200OK, new { mensaje = "Ok" });
             }
             catch (Exception ex)
             {
-                return StatusCode(StatusCodes.Status200OK, new { mensaje =  ex.Message});
+                return StatusCode(StatusCodes.Status200OK, new { mensaje = ex.Message });
             }
         }
 
-        // Eliminar un registro existente en la base de datos
         [HttpDelete]
         [Route("Eliminar/{id:long}")]
-        public IActionResult Eliminar (long id)
+        public IActionResult Eliminar(long id)
         {
-            Producto? oProducto = _dbcontext.Productos.Find(id);
+            Categorium? oCategoria = _dbcontext.Categoria.Find(id);
 
-            if (oProducto == null)
+            if (oCategoria == null)
             {
                 return BadRequest("Producto no encontrado");
             }
+
             try
             {
-                _dbcontext.Productos.Remove(oProducto);
+                _dbcontext.Categoria.Remove(oCategoria);
                 _dbcontext.SaveChanges();
 
                 return StatusCode(StatusCodes.Status200OK, new { mensaje = "Ok" });
@@ -139,6 +132,4 @@ namespace API.Controllers
             }
         }
     }
-
-
 }

@@ -12,7 +12,12 @@ function Login() {
           <div className="justify-center mx-auto text-left align-bottom transition-all transhtmlForm bg-white rounded-lg sm:align-middle sm:max-w-2xl sm:w-full">
             <div className="grid flex-wrap items-center justify-center grid-cols-1 mx-auto shadow-xl lg:grid-cols-2 rounded-xl">
               <div className="w-full px-6 py-3">
-                <LoginTitle />
+                <LoginTitle
+                  title="Iniciar sesión"
+                  question="¿No tienes una cuenta?"
+                  linkTo="/register"
+                  linkText="Registrate"
+                />
                 <LoginForm />
                 <LoginCustomHr />
                 <LoginGoogle />
