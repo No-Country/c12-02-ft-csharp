@@ -6,6 +6,7 @@ import imagen4 from "../assets/4.webp";
 
 export const Carousel = () => {
   const slides = [imagen1, imagen2, imagen3, imagen4];
+  
   const [imagenActual, setimagenActual] = useState(0);
   const cant = slides?.length;
   const intervalo = 3000;
@@ -13,13 +14,13 @@ export const Carousel = () => {
   const next = () => {
     setTimeout(() => {
       setimagenActual(imagenActual === cant - 1 ? 0 : imagenActual + 1);
-    }, 500);
+    }, 1000);
   };
 
   const prev = () => {
     setTimeout(() => {
       setimagenActual(imagenActual === 0 ? cant - 1 : imagenActual - 1);
-    }, 500);
+    }, 1000);
   };
 
   useEffect(() => {
