@@ -1,4 +1,3 @@
-
 import { Navbar } from "../components/Navbar";
 import { Carousel } from "../components/Carousel";
 import { ComponentHome } from "../components/ComponentHome";
@@ -23,7 +22,8 @@ function Home() {
           viewBox="0 0 1430 450"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          xmlnsXlink="http://www.w3.org/1999/xlink">
+          xmlnsXlink="http://www.w3.org/1999/xlink"
+        >
           <rect width="1430" height="450" fill="url(#pattern0)" />
           <defs>
             <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
@@ -46,7 +46,8 @@ function Home() {
           viewBox="0 0 1512 150"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          xmlnsXlink="http://www.w3.org/1999/xlink">
+          xmlnsXlink="http://www.w3.org/1999/xlink"
+        >
           <rect width="1512" height="150" fill="#D9D9D9" />
           <rect x="96" y="35" width="80" height="80" fill="url(#pattern0)" />
           <rect x="653" y="55" width="151.229" height="40" fill="url(#pattern1)" />

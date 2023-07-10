@@ -3,10 +3,8 @@ export const Card = () => {
   return (
     <div className="m-4 lg:w-1/4 md:w-1/2 p-4 w-full  bg-gray-200 shadow-lg rounded-md">
       <div className="absolute">
-        
-          <RiStarFill className="relative text-yellow-400 w-14 h-14 -top-8 right-8" />
-          <span className="relative bottom-[72px] text-[12px] -left-[12px] text-indigo-600">4.5</span>
-        
+        <RiStarFill className="relative text-yellow-400 w-14 h-14 -top-8 right-8" />
+        <span className="relative bottom-[72px] text-[12px] -left-[12px] text-indigo-600">4.5</span>
       </div>
       <a className="block relative h-[220px] rounded overflow-hidden">
         <img
@@ -30,7 +28,8 @@ export const Card = () => {
                 viewBox="0 0 24 24"
                 strokeWidth="1.5"
                 stroke="currentColor"
-                className="w-6 h-6 text-gray-100 ">
+                className="w-6 h-6 text-gray-100 "
+              >
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -45,7 +44,8 @@ export const Card = () => {
                 viewBox="0 0 24 24"
                 strokeWidth="1.5"
                 stroke="currentColor"
-                className="w-6 h-6">
+                className="w-6 h-6"
+              >
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
