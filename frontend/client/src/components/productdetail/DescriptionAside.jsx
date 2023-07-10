@@ -1,4 +1,4 @@
-import { BsStarFill, BsStar, BsStarHalf } from 'react-icons/bs';
+import { BsStarFill, BsStar, BsStarHalf } from "react-icons/bs";
 // import { useEffect, useState } from "react";
 
 const DescriptionAside = ({ name, category, rating, price, brand, description }) => {
@@ -14,34 +14,32 @@ const DescriptionAside = ({ name, category, rating, price, brand, description })
           Categoría: <span className="text-black">{category}</span>
         </p>
         <div className="flex gap-2">
-        {Array(5)
-              .fill()
-              .map((_, i) => {
-                if (i < fullStars) {
-                  return <BsStarFill key={i} className="h-5 text-yellow-500" />;
-                }
-                if (hasHalfStar && i === fullStars) {
-                  return <BsStarHalf key={i} className="h-5 text-yellow-500" />;
-                }
-                return <BsStar key={i} className="h-5 text-yellow-500" />;
-              })}
+          {Array(5)
+            .fill()
+            .map((_, i) => {
+              if (i < fullStars) {
+                return <BsStarFill key={i} className="h-5 text-yellow-500" />;
+              }
+              if (hasHalfStar && i === fullStars) {
+                return <BsStarHalf key={i} className="h-5 text-yellow-500" />;
+              }
+              return <BsStar key={i} className="h-5 text-yellow-500" />;
+            })}
           <p>(5 reviews)</p>
-      </div>
+        </div>
       </div>
       <div className="my-2 p-1">
-      <p className="text-md font-medium text-gray-500">
+        <p className="text-md font-medium text-gray-500">
           Marca: <span className="text-black">{brand}</span>
         </p>
-        </div>
+      </div>
       <div className="my-2 p-1">
-      <p className="text-md font-medium text-gray-500">
+        <p className="text-md font-medium text-gray-500">
           Precio: <span className="text-black">${price}</span>
         </p>
       </div>
       <div className="my-2 p-1">
-      <p className="text-md font-medium text-gray-500">
-          Descripción:
-        </p>
+        <p className="text-md font-medium text-gray-500">Descripción:</p>
         <ul>
           {description.map(descrip => {
             return (

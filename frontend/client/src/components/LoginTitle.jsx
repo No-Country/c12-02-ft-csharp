@@ -14,7 +14,8 @@ function LoginTitle({ title, question, linkTo, linkText }) {
           <Link
             to={linkTo}
             type="button"
-            className=" md:text-sm font-medium text-gray-600 focus:outline-none hover:text-neutral-600 focus:text-blue-600 sm:text-sm underline">
+            className=" md:text-sm font-medium text-gray-600 focus:outline-none hover:text-neutral-600 focus:text-blue-600 sm:text-sm underline"
+          >
             {" "}
             {linkText}{" "}
           </Link>

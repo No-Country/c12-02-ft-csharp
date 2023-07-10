@@ -1,5 +1,5 @@
 import { FaFacebookF, FaInstagram, FaTwitter, FaLinkedinIn, FaPhoneAlt } from "react-icons/fa";
-import {MdEmail, MdPlace} from 'react-icons/md'
+import { MdEmail, MdPlace } from "react-icons/md";
 
 const Footer = () => {
   return (
@@ -50,7 +50,11 @@ const Footer = () => {
               </ul>
               <div className="flex flex-col">
                 <span className="font-bold">Suscribete</span>
-                <input type="text" placeholder="Suscribete..." className="px-2 py-1 my-2 rounded-lg" />
+                <input
+                  type="text"
+                  placeholder="Suscribete..."
+                  className="px-2 py-1 my-2 rounded-lg"
+                />
                 <span>Únete para recibir las últimas novedades</span>
               </div>
             </div>

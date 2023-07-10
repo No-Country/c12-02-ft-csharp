@@ -17,7 +17,8 @@ export const Menu = ({ openClose }) => {
             viewBox="0 0 24 24"
             strokeWidth="1.5"
             stroke="currentColor"
-            className="w-5 h-5">
+            className="w-5 h-5"
+          >
             <path
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -28,15 +29,18 @@ export const Menu = ({ openClose }) => {
       </div>
       <div
         className="flex flex-col text-center bg-gray-300 text-black shadow-lg"
-        onClick={openClose}>
+        onClick={openClose}
+      >
         <a
           href=""
-          className="hover:bg-gray-500 hover:text-gray-200 h-8 flex items-center mx-4 pl-2  rounded-md">
+          className="hover:bg-gray-500 hover:text-gray-200 h-8 flex items-center mx-4 pl-2  rounded-md"
+        >
           Mis compras
         </a>
         <a
           href=""
-          className="hover:bg-gray-500 hover:text-gray-200 h-8 flex items-center mx-4 pl-2 mb-4 rounded-md">
+          className="hover:bg-gray-500 hover:text-gray-200 h-8 flex items-center mx-4 pl-2 mb-4 rounded-md"
+        >
           Mi carrito
         </a>
         <div className="border-b"></div>
@@ -46,28 +50,32 @@ export const Menu = ({ openClose }) => {
             <li>
               <a
                 href=""
-                className="hover:bg-gray-500 hover:text-gray-200 h-8 flex items-center ml-8 mr-4 pl-2 rounded-md">
+                className="hover:bg-gray-500 hover:text-gray-200 h-8 flex items-center ml-8 mr-4 pl-2 rounded-md"
+              >
                 Celulares
               </a>
             </li>
             <li>
               <a
                 href=""
-                className="hover:bg-gray-500 hover:text-gray-200 h-8 flex items-center ml-8 mr-4 pl-2 rounded-md">
+                className="hover:bg-gray-500 hover:text-gray-200 h-8 flex items-center ml-8 mr-4 pl-2 rounded-md"
+              >
                 Computadores
               </a>
             </li>
             <li>
               <a
                 href=""
-                className="hover:bg-gray-500 hover:text-gray-200 h-8 flex items-center ml-8 mr-4 pl-2 rounded-md">
+                className="hover:bg-gray-500 hover:text-gray-200 h-8 flex items-center ml-8 mr-4 pl-2 rounded-md"
+              >
                 Televisores
               </a>
             </li>
             <li>
               <a
                 href=""
-                className="hover:bg-gray-500 hover:text-gray-200 h-8 flex items-center ml-8 mr-4 pl-2 rounded-md">
+                className="hover:bg-gray-500 hover:text-gray-200 h-8 flex items-center ml-8 mr-4 pl-2 rounded-md"
+              >
                 Consolas y VideoJuegos
               </a>
             </li>
@@ -75,7 +83,8 @@ export const Menu = ({ openClose }) => {
 
           <a
             href="#"
-            className="hover:bg-gray-500 hover:text-gray-200 h-8 flex items-center mx-4 hover:underline pl-2 rounded-md">
+            className="hover:bg-gray-500 hover:text-gray-200 h-8 flex items-center mx-4 hover:underline pl-2 rounded-md"
+          >
             Ofertas
           </a>
         </div>

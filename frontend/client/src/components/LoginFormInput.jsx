@@ -20,7 +20,8 @@ function LoginFormInput({
       <div className="relative flex items-center mb-2">
         <label
           htmlFor={id}
-          className="absolute -top-3 left-2 px-1 bg-white text-gray-600 text-sm mx-2">
+          className="absolute -top-3 left-2 px-1 bg-white text-gray-600 text-sm mx-2"
+        >
           {label}
         </label>
         <input

@@ -95,7 +95,7 @@ const ProductDetail = () => {
               <Card />
               <Card />
               <Card />
-              </div>
+            </div>
           </div>
         </div>
       </div>

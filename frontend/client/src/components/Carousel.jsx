@@ -6,7 +6,7 @@ import imagen4 from "../assets/4.webp";
 
 export const Carousel = () => {
   const slides = [imagen1, imagen2, imagen3, imagen4];
-  
+
   const [imagenActual, setimagenActual] = useState(0);
   const cant = slides?.length;
   const intervalo = 3000;
@@ -39,14 +39,16 @@ export const Carousel = () => {
     <div className="w-full h-full flex justify-center items-center mt-8">
       <button
         onClick={prev}
-        className="p-1 rounded-full bg-indigo-400/60 text-gray-200 hover:bg-white hover:text-indigo-600">
+        className="p-1 rounded-full bg-indigo-400/60 text-gray-200 hover:bg-white hover:text-indigo-600"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
           strokeWidth="1.5"
           stroke="currentColor"
-          className="w-6 h-6">
+          className="w-6 h-6"
+        >
           <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
         </svg>
       </button>
@@ -54,7 +56,7 @@ export const Carousel = () => {
       {slides.map((sli, index) => (
         <div className="max-w-full h-auto transition-transform ease-out duration-500" key={index}>
           {imagenActual === index && (
-            <div className="w-full h-full" >
+            <div className="w-full h-full">
               <img src={sli} alt={`Imagen ${index}`} className="w-[1000px] mx-8" />
             </div>
           )}
@@ -62,14 +64,16 @@ export const Carousel = () => {
       ))}
       <button
         onClick={next}
-        className="p-1 rounded-full bg-indigo-400/60 text-gray-200 hover:bg-white hover:text-indigo-600 ">
+        className="p-1 rounded-full bg-indigo-400/60 text-gray-200 hover:bg-white hover:text-indigo-600 "
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
           strokeWidth="1.5"
           stroke="currentColor"
-          className="w-6 h-6">
+          className="w-6 h-6"
+        >
           <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
         </svg>
       </button>
