@@ -1,6 +1,8 @@
 import PropTypes from "prop-types";
 import { Card } from "./Card";
-export const ComponentHome = ({ title, icon, reverse }) => {
+
+export const ComponentHome = ({ title, icon, reverse, products }) => {
+  console.log(products)
   return (
     <>
       <div
@@ -16,8 +18,11 @@ export const ComponentHome = ({ title, icon, reverse }) => {
         </div>
         <div className="flex items-center justify-between w-[80%] p-2">
           <div className="flex transition-transform ease-out duration-500">
-            {[...Array(4)].map((_, i) => (
-              <Card key={i} />
+            {products && products.map((pro, index) => (
+              <Card
+                key={index}
+                product={pro}
+              />
             ))}
           </div>
         </div>
@@ -29,5 +34,6 @@ export const ComponentHome = ({ title, icon, reverse }) => {
 ComponentHome.propTypes = {
   title: PropTypes.string.isRequired,
   icon: PropTypes.string.isRequired,
-  reverse: PropTypes.bool.isRequired
+  reverse: PropTypes.bool.isRequired,
+  products: PropTypes.array.isRequired
 };
