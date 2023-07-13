@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 import { Card } from "./Card";
 
 export const ComponentHome = ({ title, icon, reverse, products }) => {
+  console.log(products)
   return (
     <>
       <div
@@ -17,7 +18,7 @@ export const ComponentHome = ({ title, icon, reverse, products }) => {
         </div>
         <div className="flex items-center justify-between w-[80%] p-2">
           <div className="flex transition-transform ease-out duration-500">
-            {products.map((pro, index) => (
+            {products && products.map((pro, index) => (
               <Card
                 key={index}
                 product={pro}
