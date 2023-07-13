@@ -7,7 +7,6 @@ export const ProductCart = ({ product, handleRemove, cantidad }) => {
   const [isSelected, setIsSelected] = useState(false);
   const [quantity, setQuantity] = useState(cantidad);
 
-  //console.log(product)
   const handleSelect = () => {
     setIsSelected(!isSelected);
   };

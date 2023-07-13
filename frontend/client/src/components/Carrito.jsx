@@ -7,6 +7,7 @@ export const Carrito = () => {
   const dispatch = useDispatch();
   const { carrito } = useSelector(state => state.carts);
   const { pagarCarrito } = useSelector(state => state.carts);
+  const {total} = useSelector(state => state.carts)
   const handleRemoveProduct = productId => dispatch(removeProductToCart(productId));
 
   return (
@@ -21,7 +22,7 @@ export const Carrito = () => {
             <ProductCart
               key={index}
               product={pro["product"]}
-              cantidad={pro["cantidad"]}
+              cantidad={pro["cantidad"]}        
               handleRemove={() => handleRemoveProduct(pro["product"].id)}
             />
           ))}
@@ -40,7 +41,7 @@ export const Carrito = () => {
           ))}
           <div className="flex items-center justify-between w-[80%]">
             <h3 className="text-xl">Total a pagar:</h3>
-            <span className="text-2xl">$100</span>
+            <span className="text-2xl">${total}</span>
           </div>
           <button className="bg-orange-400 p-4 rounded-full w-[80%] text-2xl text-gray-200 font-semibold">
             Pagar

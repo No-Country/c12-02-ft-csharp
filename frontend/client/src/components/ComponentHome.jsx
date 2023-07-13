@@ -2,12 +2,12 @@ import PropTypes from "prop-types";
 import { Card } from "./Card";
 
 export const ComponentHome = ({ title, icon, reverse, products }) => {
-  console.log(products)
   return (
     <>
       <div
-        className={`flex mt-4 items-center bg-gray-400 shadow-2xl ${reverse && "flex-row-reverse"}`}
-      >
+        className={`flex mt-4 items-center bg-gray-400 shadow-2xl ${
+          reverse && "flex-row-reverse"
+        }`}>
         <div className="flex flex-col w-[30%] items-center p-2">
           <p className="text-4xl font-bold">
             {title} <span className="text-4xl">{icon}</span>
@@ -18,12 +18,7 @@ export const ComponentHome = ({ title, icon, reverse, products }) => {
         </div>
         <div className="flex items-center justify-between w-[80%] p-2">
           <div className="flex transition-transform ease-out duration-500">
-            {products && products.map((pro, index) => (
-              <Card
-                key={index}
-                product={pro}
-              />
-            ))}
+            {products && products.map((pro, index) => <Card key={index} product={pro} />)}
           </div>
         </div>
       </div>

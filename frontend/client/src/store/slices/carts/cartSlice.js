@@ -19,6 +19,11 @@ export const cartSlice = createSlice({
       const productId = action.payload;
       state.totalCount === 0 ? (state.totalCount = 0) : (state.totalCount -= 1);
       state.carrito = state.carrito.filter(pro => pro["product"].id !== productId);
+      state.pagarCarrito = state.pagarCarrito.filter(pro => pro.product.id !== productId);
+      state.total = state.pagarCarrito.reduce(
+        (acomulador, pro) => acomulador + pro.product.price * pro.cantidad,
+        0
+      );
       if (state.carrito.length === 0) state.quantity = 0;
     },
     cantidadProductToCart: (state, action) => {
@@ -30,15 +35,29 @@ export const cartSlice = createSlice({
         return pro;
       });
     },
-    totalProductToCart: (state, action) => {
+    totalProductToCart: (state) => {
       state.pagarCarrito = state.carrito.filter(pro => pro.estado === true);
+      state.total = state.pagarCarrito.reduce(
+        (acomulador, pro) => acomulador + pro.product.price * pro.cantidad,
+        0
+      );
+    },
 
-      console.log(state.pagarCarrito);
+    totalPayToCar: (state) => {
+      state.total = state.pagarCarrito.reduce(
+        (acomulador, pro) => acomulador + pro.product.price * pro.cantidad,
+        0
+      );
     }
   }
 });
 
-export const { addProductToCart, removeProductToCart, totalProductToCart, cantidadProductToCart } =
-  cartSlice.actions;
+export const {
+  addProductToCart,
+  removeProductToCart,
+  totalProductToCart,
+  cantidadProductToCart,
+  totalPayToCar
+} = cartSlice.actions;
 
 export default cartSlice.reducer;
