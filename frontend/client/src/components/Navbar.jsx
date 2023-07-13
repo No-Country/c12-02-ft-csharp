@@ -52,7 +52,8 @@ export const Navbar = () => {
               viewBox="0 0 24 24"
               strokeWidth="1.5"
               stroke="currentColor"
-              className="w-5 h-5">
+              className="w-5 h-5"
+            >
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -69,7 +70,8 @@ export const Navbar = () => {
               viewBox="0 0 24 24"
               strokeWidth="1.5"
               stroke="currentColor"
-              className="w-6 h-6">
+              className="w-6 h-6"
+            >
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -85,14 +87,16 @@ export const Navbar = () => {
             </Link> */}
               <a
                 href="#"
-                className="p-4 whitespace-nowrap text-sm  text-gray-600 hidden lg:block hover:underline">
+                className="p-4 whitespace-nowrap text-sm  text-gray-600 hidden lg:block hover:underline"
+              >
                 Mis compras
               </a>
               <div className="w-full flex justify-end">
                 <Link
                   to="/login"
                   className="inline-flex items-center -mr-14 md:mr-2 gap-2 rounded-lg border border-indigo-600 bg-indigo-600 px-5 py-3 text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500"
-                  href="/download">
+                  href="/download"
+                >
                   <span className="text-sm font-medium"> Ingresar</span>
 
                   <svg
@@ -100,7 +104,8 @@ export const Navbar = () => {
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
-                    stroke="currentColor">
+                    stroke="currentColor"
+                  >
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"

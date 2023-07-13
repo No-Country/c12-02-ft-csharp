@@ -5,6 +5,8 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Layout from "./components/Layout";
 import { Carrito } from "./components/Carrito";
+import ProductDetail from "./pages/ProductDetail";
+
 
 export function App() {
   return (
@@ -14,6 +16,14 @@ export function App() {
         element={
           <Layout>
             <Home />
+          </Layout>
+        }
+      />
+      <Route
+        path="/product-detail/:id"
+        element={
+          <Layout>
+            <ProductDetail />
           </Layout>
         }
       />
