@@ -45,14 +45,16 @@ export const ProductCart = ({ product, handleRemove, cantidad }) => {
               onClick={() => {
                 setQuantity(cantidad);
                 handleRemove(product.id);
-              }}>
+              }}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
                 strokeWidth="1.5"
                 stroke="currentColor"
-                className="w-4 h-4">
+                className="w-4 h-4"
+              >
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -71,7 +73,8 @@ export const ProductCart = ({ product, handleRemove, cantidad }) => {
                   viewBox="0 0 24 24"
                   strokeWidth="1.5"
                   stroke="currentColor"
-                  className="w-5 h-5">
+                  className="w-5 h-5"
+                >
                   <path strokeLinecap="round" strokeLinejoin="round" d="M18 12H6" />
                 </svg>
               </button>
@@ -83,7 +86,8 @@ export const ProductCart = ({ product, handleRemove, cantidad }) => {
                   viewBox="0 0 24 24"
                   strokeWidth="1.5"
                   stroke="currentColor"
-                  className="w-5 h-5">
+                  className="w-5 h-5"
+                >
                   <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m6-6H6" />
                 </svg>
               </button>
