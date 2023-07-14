@@ -6,8 +6,12 @@ const Carousel = ({ images }) => {
     setIndexImg(i);
   };
 
-  const RenderizarImg = () => {
-    return <img className="max-h-96" src={images[indexImg]} />;
+  const RenderizarImg = (images, indexImg) => {
+    if (images && images.length > 0 && indexImg >= 0 && indexImg < images.length) {
+      return <img className="max-h-96" src={images[indexImg]} />;
+    } else {
+      return null;
+    }
   };
 
   useEffect(() => {
@@ -17,22 +21,20 @@ const Carousel = ({ images }) => {
   return (
     <div className="flex w-100 box-border">
       <div className="w-1/6">
-        {images?.map(img => {
-          if (images.indexOf(img) <= 6) {
-            return (
-              <div className="w-auto flex justify-center items-center" key={images.indexOf(img)}>
-                <img
-                  src={img}
-                  alt={`Image - ${images.indexOf(img)}`}
-                  className={`w-16 h-16 object-contain p-2 m-2 cursor-pointer rounded border border-grey hover:border-ligthblue`}
-                  onMouseOver={() => changeImg(images.indexOf(img))}
-                />
-              </div>
-            );
-          }
-        })}
+        {images?.slice(0, 7).map((img, i) => (
+          <div className="w-auto flex justify-center items-center" key={i}>
+            <img
+              src={img}
+              alt={`Image - ${i}`}
+              className="w-16 h-16 object-contain p-2 m-2 cursor-pointer rounded border border-grey hover:border-ligthblue"
+              onMouseOver={() => changeImg(i)}
+            />
+          </div>
+        ))}
       </div>
-      <div className="w-5/6 flex justify-center items-center">{RenderizarImg()}</div>
+      <div className="w-5/6 flex justify-center items-center">
+        {RenderizarImg(images, indexImg)}
+      </div>
     </div>
   );
 };

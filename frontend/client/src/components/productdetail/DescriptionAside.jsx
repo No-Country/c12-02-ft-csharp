@@ -1,6 +1,7 @@
 import { BsStarFill, BsStar, BsStarHalf } from "react-icons/bs";
 // import { useEffect, useState } from "react";
 
+// eslint-disable-next-line react/prop-types
 const DescriptionAside = ({ name, category, rating, price, brand, description }) => {
   const fullStars = Math.floor(rating);
   const hasHalfStar = rating % 1 > 0;
@@ -41,7 +42,7 @@ const DescriptionAside = ({ name, category, rating, price, brand, description })
       <div className="my-2 p-1">
         <p className="text-md font-medium text-gray-500">Descripción:</p>
         <ul>
-          {description.map(descrip => {
+          {description?.map(descrip => {
             return (
               <li
                 key={description.indexOf(descrip)}

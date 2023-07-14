@@ -7,7 +7,6 @@ import Layout from "./components/Layout";
 import { Carrito } from "./components/Carrito";
 import ProductDetail from "./pages/ProductDetail";
 
-
 export function App() {
   return (
     <Routes>
