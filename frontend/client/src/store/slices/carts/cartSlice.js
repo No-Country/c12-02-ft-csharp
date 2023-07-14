@@ -17,15 +17,39 @@ export const cartSlice = createSlice({
     },
     removeProductToCart: (state, action) => {
       const productId = action.payload;
-      state.totalCount === 0 ? (state.totalCount = 0) : (state.totalCount -= 1);
+      state.totalCount -= 1;
       state.carrito = state.carrito.filter(pro => pro["product"].id !== productId);
       state.pagarCarrito = state.pagarCarrito.filter(pro => pro.product.id !== productId);
       state.total = state.pagarCarrito.reduce(
         (acomulador, pro) => acomulador + pro.product.price * pro.cantidad,
         0
       );
-      if (state.carrito.length === 0) state.quantity = 0;
     },
+    removeProductToPay: (state, action) => {
+      const { id, estado } = action.payload;
+      if (estado) {
+        state.pagarCarrito = state.pagarCarrito.filter(pro => pro.product.id !== id);
+        state.carrito.forEach(pro => {
+          if (pro.product.id === id) {
+            pro.estado = false;
+          }
+        });
+      }
+    },
+    incrementDecrement: (state, action) => {
+      const { estado, id } = action.payload;
+      state.carrito.forEach(pro => {
+        if (pro.product.id === id) {
+          if (estado) {
+            pro.cantidad++;
+          }
+          if (pro.cantidad > 1 && !estado) {
+            pro.cantidad--;
+          }
+        }
+      });
+    },
+
     cantidadProductToCart: (state, action) => {
       const { id, quantity, isSelected } = action.payload;
       state.carrito = state.carrito.map(pro => {
@@ -35,7 +59,7 @@ export const cartSlice = createSlice({
         return pro;
       });
     },
-    totalProductToCart: (state) => {
+    totalProductToCart: state => {
       state.pagarCarrito = state.carrito.filter(pro => pro.estado === true);
       state.total = state.pagarCarrito.reduce(
         (acomulador, pro) => acomulador + pro.product.price * pro.cantidad,
@@ -43,7 +67,7 @@ export const cartSlice = createSlice({
       );
     },
 
-    totalPayToCar: (state) => {
+    totalPayToCar: state => {
       state.total = state.pagarCarrito.reduce(
         (acomulador, pro) => acomulador + pro.product.price * pro.cantidad,
         0
@@ -57,7 +81,9 @@ export const {
   removeProductToCart,
   totalProductToCart,
   cantidadProductToCart,
-  totalPayToCar
+  totalPayToCar,
+  incrementDecrement,
+  removeProductToPay
 } = cartSlice.actions;
 
 export default cartSlice.reducer;

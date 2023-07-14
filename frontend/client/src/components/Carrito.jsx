@@ -1,14 +1,15 @@
 import Layout from "./Layout";
 import { ProductCart } from "./ProductCart";
 import { useSelector, useDispatch } from "react-redux";
-import { removeProductToCart } from "../store/slices/carts/cartSlice";
+import { removeProductToCart, removeProductToPay } from "../store/slices/carts/cartSlice";
 
 export const Carrito = () => {
   const dispatch = useDispatch();
   const { carrito } = useSelector(state => state.carts);
   const { pagarCarrito } = useSelector(state => state.carts);
-  const {total} = useSelector(state => state.carts)
+  const { total } = useSelector(state => state.carts);
   const handleRemoveProduct = productId => dispatch(removeProductToCart(productId));
+  const handleClick = (productId, estado) => dispatch(removeProductToPay({ id: productId, estado }));
 
   return (
     <Layout>
@@ -21,9 +22,9 @@ export const Carrito = () => {
           {carrito.map((pro, index) => (
             <ProductCart
               key={index}
-              product={pro["product"]}
-              cantidad={pro["cantidad"]}        
+              product={pro}
               handleRemove={() => handleRemoveProduct(pro["product"].id)}
+              handleRemoveToPay={() => handleClick(pro.product.id,pro.estado)}
             />
           ))}
         </div>
