@@ -4,7 +4,8 @@ const initialState = {
   totalCount: 0,
   carrito: [],
   pagarCarrito: [],
-  total: 0
+  total: 0,
+  x: "hola"
 };
 
 export const cartSlice = createSlice({
@@ -20,13 +21,10 @@ export const cartSlice = createSlice({
       state.totalCount -= 1;
       state.carrito = state.carrito.filter(pro => pro["product"].id !== productId);
       state.pagarCarrito = state.pagarCarrito.filter(pro => pro.product.id !== productId);
-      state.total = state.pagarCarrito.reduce(
-        (acomulador, pro) => acomulador + pro.product.price * pro.cantidad,
-        0
-      );
     },
     removeProductToPay: (state, action) => {
       const { id, estado } = action.payload;
+      state.total = 0;
       if (estado) {
         state.pagarCarrito = state.pagarCarrito.filter(pro => pro.product.id !== id);
         state.carrito.forEach(pro => {
@@ -34,6 +32,7 @@ export const cartSlice = createSlice({
             pro.estado = false;
           }
         });
+        state.pagarCarrito.forEach(pro => (state.total -= pro.product.price * pro.cantidad * -1));
       }
     },
     incrementDecrement: (state, action) => {

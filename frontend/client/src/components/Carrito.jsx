@@ -1,9 +1,11 @@
 import Layout from "./Layout";
+import { useState, useEffect } from "react";
 import { ProductCart } from "./ProductCart";
 import { useSelector, useDispatch } from "react-redux";
 import { removeProductToCart, removeProductToPay } from "../store/slices/carts/cartSlice";
 
 export const Carrito = () => {
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const dispatch = useDispatch();
   const { carrito } = useSelector(state => state.carts);
   const { pagarCarrito } = useSelector(state => state.carts);
@@ -12,9 +14,20 @@ export const Carrito = () => {
   const handleClick = (productId, estado) =>
     dispatch(removeProductToPay({ id: productId, estado }));
 
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
   return (
     <Layout>
-      <div className=" flex sm:flex-col md:flex-row gap-5 w-[90%] mx-auto">
+      <div className=" flex flex-col md:flex-row gap-5 w-[90%] mx-auto">
         <div className="w-full md:w-[50%] lg:w-[70%]">
           <div className="my-10 text-2xl font-bold">
             <h2>Cesta de la compra({carrito.length})</h2>
@@ -31,18 +44,23 @@ export const Carrito = () => {
         </div>
         {/* Resumen */}
 
-        <div className="w-full md:w-[50%]  h-16 md:h-96 bg-indigo-200 mt-10 rounded-lg  flex justify-between  items-center mb:justify-evenly mb:sticky top-3 mb-4 flex-row md:flex-col">
+        <div className="w-full md:w-[50%]  h-16 md:h-96 bg-indigo-200 mt-10 rounded-lg  flex justify-between  items-center mb:justify-evenly mb:sticky top-3 mb-4 flex-row md:flex-col ">
           <h2 className="text-3xl font-bold hidden md:block">Resumen</h2>
-          <div className="hidden md:block">
+          <div className={`overflow-y-auto w-full mb-4 ${
+                  windowWidth < 768 ? "hidden" : ""
+                }`}>
             {pagarCarrito.map((item, index) => (
-              <div key={index} className="px-2 flex items-center justify-around w-[90%]">
-                <div className="w-12 h-[48px] lg:w-16 lg:h-14 rounded-full border-2 border-indigo-600 overflow-hidden flex items-center">
+              <div
+                key={index}
+                className="px-2 flex items-center justify-around w-full mb-4">
+                <div className="w-12 h-[48px] lg:w-14 lg:h-14 rounded-full border-2 border-indigo-600 overflow-hidden flex items-center">
                   <img
-                    src={item.product?.imag}
+                    src={item.product?.image}
                     alt=""
                     className="w-9 h-9 lg:w-10 lg:h-10 object-contain  mx-auto mt-1 p-1"
                   />
                 </div>
+
                 <h2 className="text-sm">
                   {item.product?.name.charAt(0).toUpperCase() + item.product?.name.slice(1, 15)}
                 </h2>
@@ -51,11 +69,12 @@ export const Carrito = () => {
               </div>
             ))}
           </div>
-          <div className="flex items-center justify-between w-[50%] md:w-[80%]">
+
+          <div className="flex items-center justify-evenly w-[70%] md:w-[80%]">
             <h3 className="text-lg ml-2 md:ml-0md:text-xl">Total a pagar:</h3>
-            <span className="text-2xl">${total.toFixed(2)}</span>
+            <span className="text-xl md:text-2xl">${total.toFixed(2)}</span>
           </div>
-          <button className="bg-orange-400 p-3 mr-2 md:mr-0 md:p-4 rounded-full md:rounded-none w-[15%] md:w-full text-lg md:text-2xl text-gray-200 font-semibold">
+          <button className="bg-orange-400 px-2 py-3  mr-2 md:mr-0 md:p-4 rounded-full md:rounded-none w-[22%] md:w-full text-base md:text-2xl text-gray-200 font-semibold">
             Pagar
           </button>
         </div>

@@ -42,7 +42,7 @@ export const ProductCart = ({ product, handleRemove, handleRemoveToPay }) => {
     <>
       <div className="flex gap-4 my-4 bg-indigo-100 pl-4 py-2 md:py-4 pr-6 rounded-lg">
         <input type="checkbox" name="" id="" checked={isSelected} onChange={handleSelect} />
-        <div className="w-16 h-[56px] md:h-[48px] lg:w-16 lg:h-14 rounded-full border-2 border-indigo-600 overflow-hidden">
+        <div className="w-[80px] md:w-16 h-[56px] md:h-[48px] lg:w-16 lg:h-14 rounded-full border-2 border-indigo-600 overflow-hidden">
           <img
             src={product.product.image}
             alt=""
