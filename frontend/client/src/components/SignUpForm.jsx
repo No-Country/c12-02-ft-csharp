@@ -2,6 +2,10 @@ import { useForm, FormProvider } from "react-hook-form";
 import LoginFormInput from "./LoginFormInput";
 import LoginFormSubmit from "./LoginFormSubmit";
 
+import { useAuth } from "../context/authContext";
+
+import { useNavigate } from "react-router-dom";
+
 function SignUpForm() {
   const form = useForm({
     defaultValues: {
@@ -11,10 +15,19 @@ function SignUpForm() {
       passwordConfirm: ""
     }
   });
+
+  const { signup } = useAuth();
+  const navigate = useNavigate();
+
   const { handleSubmit, reset } = form;
 
-  const onSubmit = e => {
-    console.log(e);
+  const onSubmit = async e => {
+    try {
+      await signup(e.email, e.password);
+      navigate("/");
+    } catch (error) {
+      console.log(error.message);
+    }
     reset();
   };
 
@@ -67,7 +80,7 @@ function SignUpForm() {
             patternMessage=""
           />
           <div className="flex flex-col mt-4 lg:space-y-2">
-            <LoginFormSubmit content={"Iniciar sesión"} />
+            <LoginFormSubmit content={"Registrar"} />
           </div>
         </div>
       </form>

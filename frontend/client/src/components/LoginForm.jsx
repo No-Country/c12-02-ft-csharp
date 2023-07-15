@@ -3,6 +3,10 @@ import LoginFormInput from "./LoginFormInput";
 import LoginFormSubmit from "./LoginFormSubmit";
 import LoginFormForgotPassword from "./LoginFormForgotPassword";
 
+import { useAuth } from "../context/authContext";
+
+import { useNavigate } from "react-router-dom";
+
 function LoginForm() {
   const form = useForm({
     defaultValues: {
@@ -10,10 +14,19 @@ function LoginForm() {
       password: ""
     }
   });
+
+  const { login } = useAuth();
+  const navigate = useNavigate();
+
   const { handleSubmit, reset } = form;
 
-  const onSubmit = e => {
-    console.log(e);
+  const onSubmit = async e => {
+    try {
+      await login(e.email, e.password);
+      navigate("/");
+    } catch (error) {
+      console.log(error.message);
+    }
     reset();
   };
 
