@@ -32,7 +32,7 @@ export const cartSlice = createSlice({
             pro.estado = false;
           }
         });
-        state.pagarCarrito.forEach(pro => (state.total -= pro.product.price * pro.cantidad * -1));
+        state.pagarCarrito.forEach(pro => (state.total += pro.product.price * pro.cantidad));
       }
     },
     incrementDecrement: (state, action) => {

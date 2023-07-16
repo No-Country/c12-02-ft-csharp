@@ -53,11 +53,11 @@ export const Carrito = () => {
               <div
                 key={index}
                 className="px-2 flex items-center justify-around w-full mb-4">
-                <div className="w-12 h-[48px] lg:w-14 lg:h-14 rounded-full border-2 border-indigo-600 overflow-hidden flex items-center">
+                <div className="max-w-[55px] max-h-14 rounded-full border-2 border-indigo-600 overflow-hidden flex items-center">
                   <img
                     src={item.product?.image}
                     alt=""
-                    className="w-9 h-9 lg:w-10 lg:h-10 object-contain  mx-auto mt-1 p-1"
+                    className="w-[90%] object-contain  mx-auto mt-1 p-1"
                   />
                 </div>
 
