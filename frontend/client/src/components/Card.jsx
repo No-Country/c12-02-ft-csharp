@@ -2,11 +2,14 @@ import { RiStarFill } from "react-icons/ri";
 import { useSelector, useDispatch } from "react-redux";
 import { addProductToCart, removeProductToCart } from "../store/slices/carts/cartSlice";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
+
 export const Card = ({ product }) => {
   const { name, image, rating, category, price, id } = product;
   const newName = name ? name.substr(0, 20) : "";
   const dispatch = useDispatch();
   const { carrito } = useSelector(state => state.carts);
+
   const handleAddOrRemoveProduct = productId => {
     if (carrito.find(pdt => pdt["product"].id === productId)) {
       dispatch(removeProductToCart(productId));
@@ -31,9 +34,11 @@ export const Card = ({ product }) => {
       </a>
       <div className="mt-4">
         <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">{category}</h3>
-        <h2 className="text-gray-900 title-font text-lg font-medium truncate-10 h-14">
-          {newName}...
-        </h2>
+        <Link to={`/product-detail/${product.id}`}>
+          <h2 className="text-gray-900 title-font text-lg font-medium truncate-10 h-14">
+            {newName}...
+          </h2>
+        </Link>
         <div className="flex justify-between items-center mt-2">
           <p className="mt-1">${price}</p>
           <div className="flex gap-2">
@@ -41,14 +46,16 @@ export const Card = ({ product }) => {
               onClick={() => handleAddOrRemoveProduct(id)}
               className={`rounded-full pt-[2px] pl-[6px] w-9 h-9 ${
                 carrito.find(pdt => pdt["product"].id === id) ? "bg-orange-500" : "bg-indigo-600"
-              }`}>
+              }`}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
                 strokeWidth="1.5"
                 stroke="currentColor"
-                className="w-6 h-6 text-gray-100 ">
+                className="w-6 h-6 text-gray-100 "
+              >
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -65,7 +72,8 @@ export const Card = ({ product }) => {
                   viewBox="0 0 24 24"
                   strokeWidth="1.5"
                   stroke="currentColor"
-                  className="w-6 h-6">
+                  className="w-6 h-6"
+                >
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"

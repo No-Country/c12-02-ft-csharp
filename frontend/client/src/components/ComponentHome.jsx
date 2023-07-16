@@ -19,6 +19,7 @@ export const ComponentHome = ({ title, icon, reverse, products }) => {
         <div className="flex items-center justify-between w-[80%] p-2">
           <div className="flex transition-transform ease-out duration-500">
             {products && products.map((pro, index) => <Card key={index} product={pro} />)}
+            {products && products.map((pro, index) => <Card key={index} product={pro} />)}
           </div>
         </div>
       </div>

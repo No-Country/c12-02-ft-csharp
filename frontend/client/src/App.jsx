@@ -7,6 +7,7 @@ import Layout from "./components/Layout";
 import { Carrito } from "./components/Carrito";
 import ProductDetail from "./pages/ProductDetail";
 
+import { AuthProvider } from "./context/authContext";
 
 export function App() {
   return (
@@ -38,7 +39,9 @@ export function App() {
 export function WrappedApp() {
   return (
     <BrowserRouter>
-      <App />
+      <AuthProvider>
+        <App />
+      </AuthProvider>
     </BrowserRouter>
   );
 }
