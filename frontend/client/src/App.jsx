@@ -9,6 +9,7 @@ import ProductDetail from "./pages/ProductDetail";
 
 import { AuthProvider } from "./context/authContext";
 import Products from "./pages/Products";
+import { FiltersProvider } from "./context/filters";
 
 export function App() {
   return (
@@ -49,7 +50,9 @@ export function WrappedApp() {
   return (
     <BrowserRouter>
       <AuthProvider>
-        <App />
+        <FiltersProvider>
+          <App />
+        </FiltersProvider>
       </AuthProvider>
     </BrowserRouter>
   );
