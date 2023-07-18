@@ -2,8 +2,12 @@ import { Menu } from "./Menu";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import UserMenu from "./UserMenu";
+import { useAuth } from "../context/authContext";
 
 export const Navbar = () => {
+  const { user } = useAuth();
+
   const [isOpen, setIsOpen] = useState(false);
   const { totalCount } = useSelector(state => state.carts);
   const toogleOpen = () => {
@@ -86,26 +90,32 @@ export const Navbar = () => {
                   Mis compras
                 </a>
                 <div className="flex justify-end">
-                  <Link
-                    to="/login"
-                    className="inline-flex items-center  md:mr-2 gap-2 rounded-lg border border-indigo-600 bg-indigo-600 px-5 py-3 text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500"
-                    href="/download">
-                    <span className="text-sm font-medium">Ingresar</span>
+                  {user ? (
+                    <UserMenu />
+                  ) : (
+                    <Link
+                      to="/login"
+                      className="inline-flex items-center md:mr-2 gap-2 rounded-lg border border-indigo-600 bg-indigo-600 px-5 py-3 text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500"
+                      href="/download"
+                    >
+                      <span className="text-sm font-medium">Ingresar</span>
 
-                    <svg
-                      className="h-5 w-5 rtl:rotate-180 "
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor">
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M17 8l4 4m0 0l-4 4m4-4H3"
-                      />
-                    </svg>
-                  </Link>
+                      <svg
+                        className="h-5 w-5 rtl:rotate-180 "
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M17 8l4 4m0 0l-4 4m4-4H3"
+                        />
+                      </svg>
+                    </Link>
+                  )}
                 </div>
                 <div className="flex justify-end">
                   <Link to="/car" className="p-4">
