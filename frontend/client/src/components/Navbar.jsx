@@ -96,7 +96,7 @@ export const Navbar = () => {
                 >
                   Mis compras
                 </a>
-                <div className="w-full flex justify-end">
+                <div className=" flex justify-end">
                   {user ? (
                     <UserMenu />
                   ) : (
