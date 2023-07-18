@@ -8,10 +8,10 @@ export const Menu = ({ openClose }) => {
           type="text"
           name="search"
           id=""
-          className="py-2 px-2 rounded-md w-[95%] focus:outline-none  mt-4 mb-2"
+          className="py-2 px-2 mx-2 rounded-md w-[95%] focus:outline-none mt-4 mb-2"
           placeholder="buscar"
         />
-        <span className="text-gray-400 absolute right-6 top-7">
+        <span className="text-gray-400 absolute right-7 top-7">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"

@@ -35,7 +35,9 @@ function Home() {
 
   return (
     <>
-      <Carousel />
+      <div className="hidden md:block">
+        <Carousel />
+      </div>
       <Categorias />
       <ComponentHome title="Ofertas Hot" icon="🔥" reverse={false} products={data.slice(0, 4)} />
       <div className="w-full bg-indigo-200 mt-4 h-[300px]">
