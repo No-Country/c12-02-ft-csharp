@@ -5,9 +5,9 @@ import conso from "../assets/CONS.jpg";
 export const Categorias = () => {
   return (
     <>
-      <div className="flex flex-col items-center my-10">
-        <div className="text-3xl font-bold mb-8">
-          Compra por Categoria <span className="text-5xl">💻</span>
+      <div className="flex flex-col items-center bg-orange-500 my-2 lg:my-10 pb-3 md:pb-0">
+        <div className="text-2xl md:text-3xl font-bold mb-8">
+          Compra por Categoria <span className="text-2xl md:text-5xl">💻</span>
         </div>
         <div className="flex flex-col md:flex-row items-center justify-between gap-4  md:w-[98%] lg:w-[80%]">
           <div className="flex flex-col  items-center">

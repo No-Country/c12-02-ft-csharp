@@ -32,7 +32,7 @@ function Home() {
         console.log("Error al obtener los productos:", error);
       });
   }, []);
-
+  
   return (
     <>
       <div className="hidden md:block">

@@ -19,9 +19,14 @@ export const Card = ({ product }) => {
   };
   return (
     <div className="m-4 lg:w-1/4 md:w-1/2 p-4 w-full  bg-gray-200 shadow-lg rounded-md">
-      <div className="absolute">
-        <RiStarFill className="relative text-yellow-400 w-14 h-14 -top-8 right-9" />
-        <span className="relative bottom-[72px] text-[12px] -left-[14px] text-indigo-600">
+      <div className="absolute z-10">
+        <RiStarFill className="relative text-yellow-400 w-16 h-16 md:w-14 md:h-14  -top-[38px] md:-top-9 right-9" />
+        <span
+          className={`relative text-[14px] bottom-[80px] md:bottom-[76px]  ${
+            Number.isInteger(rating)
+              ? "-left-[9px] md:-left-[13px] "
+              : "-left-[14px] md:-left-[18px] "
+          } text-indigo-600`}>
           {rating}
         </span>
       </div>
@@ -46,16 +51,14 @@ export const Card = ({ product }) => {
               onClick={() => handleAddOrRemoveProduct(id)}
               className={`rounded-full pt-[2px] pl-[6px] w-9 h-9 ${
                 carrito.find(pdt => pdt["product"].id === id) ? "bg-orange-500" : "bg-indigo-600"
-              }`}
-            >
+              }`}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
                 strokeWidth="1.5"
                 stroke="currentColor"
-                className="w-6 h-6 text-gray-100 "
-              >
+                className="w-6 h-6 text-gray-100 ">
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -72,8 +75,7 @@ export const Card = ({ product }) => {
                   viewBox="0 0 24 24"
                   strokeWidth="1.5"
                   stroke="currentColor"
-                  className="w-6 h-6"
-                >
+                  className="w-6 h-6">
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
