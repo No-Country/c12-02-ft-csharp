@@ -9,7 +9,7 @@ export function useFilters() {
       return (
         product.price >= filters.minPrice &&
         product.price <= filters.maxPrice &&
-        (filters.category.length === 0 || filters.category.includes(product.category))
+        (filters.category.length === 0 || filters.category.includes(product.category))  && (filters.brand.length === 0 || filters.brand.includes(product.brand))
       );
     });
   };

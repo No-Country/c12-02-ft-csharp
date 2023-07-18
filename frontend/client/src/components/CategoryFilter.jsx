@@ -1,4 +1,3 @@
-import { useId, useState } from "react";
 import { useFilters } from "../hooks/useFilters";
 import useFirestoreData from "../hooks/useFirestoreData";
 
