@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 export const Menu = ({ openClose }) => {
   return (
@@ -37,12 +38,12 @@ export const Menu = ({ openClose }) => {
         >
           Mis compras
         </a>
-        <a
-          href=""
+        <Link
+          to={'/car'}
           className="hover:bg-gray-500 hover:text-gray-200 h-8 flex items-center mx-4 pl-2 mb-4 rounded-md"
         >
           Mi carrito
-        </a>
+        </Link>
         <div className="border-b"></div>
         <div className="flex flex-col  gap-2 my-4">
           <ul>

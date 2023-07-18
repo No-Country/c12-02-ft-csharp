@@ -9,7 +9,6 @@ export const Navbar = () => {
   const { user } = useAuth();
 
   const [isOpen, setIsOpen] = useState(false);
-
   const { totalCount } = useSelector(state => state.carts);
   const toogleOpen = () => {
     setIsOpen(!isOpen);
@@ -35,8 +34,8 @@ export const Navbar = () => {
 
   return (
     <>
-      <div className="sticky top-0 z-50">
-        <nav className="flex justify-between items-center sm:pl-8 md:pl-1 h-20 bg-gray-200  relative ">
+      <div className="sticky top-0 z-50 w-[100%]">
+        <nav className="flex justify-between items-center sm:pl-8 md:pl-1 h-20 bg-gray-200 relative ">
           <div>
             <Link to="/" className="text-xl pl-4 md:pl-2 font-bold text-gray-600 whitespace-nowrap">
               LaTech-Shop
@@ -57,8 +56,7 @@ export const Navbar = () => {
                 viewBox="0 0 24 24"
                 strokeWidth="1.5"
                 stroke="currentColor"
-                className="w-5 h-5"
-              >
+                className="w-5 h-5">
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -68,15 +66,14 @@ export const Navbar = () => {
             </span>
           </div>
           <div className="flex items-center flex-row-reverse">
-            <div className="px-4 cursor-pointer lg:hidden" onClick={toogleOpen}>
+            <div className="cursor-pointer lg:hidden" onClick={toogleOpen}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
                 strokeWidth="1.5"
                 stroke="currentColor"
-                className="w-6 h-6"
-              >
+                className="w-6 h-6 mr-4">
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -85,27 +82,23 @@ export const Navbar = () => {
               </svg>
             </div>
 
-            <div className=" ml-2 pr-8  ">
-              <div className="flex items-center ">
-                {/*  <Link to="/register" className="p-4 whitespace-nowrap text-sm hidden lg:block  text-gray-600  hover:underline ">
-              Crea tu cuenta
-            </Link> */}
+            <div className=" ml-2 pr-4 md:pr-8  ">
+              <div className="flex items-center justify-evenly md:w-[200px] lg:w-full">    
                 <a
                   href="#"
-                  className="p-4 whitespace-nowrap text-sm  text-gray-600 hidden lg:block hover:underline"
-                >
+                  className="p-4 whitespace-nowrap text-sm  text-gray-600 hidden lg:block hover:underline">
                   Mis compras
                 </a>
-                <div className="w-full flex justify-end">
+                <div className="flex justify-end">
                   {user ? (
                     <UserMenu />
                   ) : (
                     <Link
                       to="/login"
-                      className="inline-flex items-center -mr-14 md:mr-2 gap-2 rounded-lg border border-indigo-600 bg-indigo-600 px-5 py-3 text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500"
+                      className="inline-flex items-center md:mr-2 gap-2 rounded-lg border border-indigo-600 bg-indigo-600 px-5 py-3 text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500"
                       href="/download"
                     >
-                      <span className="text-sm font-medium"> Ingresar</span>
+                      <span className="text-sm font-medium">Ingresar</span>
 
                       <svg
                         className="h-5 w-5 rtl:rotate-180 "
@@ -124,10 +117,7 @@ export const Navbar = () => {
                     </Link>
                   )}
                 </div>
-                <div>
-                  <span className="bg-red-500 text-gray-200 rounded-full px-[3px] absolute right-6 bottom-10">
-                    {totalCount}
-                  </span>
+                <div className="flex justify-end">
                   <Link to="/car" className="p-4">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -135,8 +125,7 @@ export const Navbar = () => {
                       viewBox="0 0 24 24"
                       strokeWidth="1.5"
                       stroke="currentColor"
-                      className="w-6 h-6 text-sm  text-gray-600 hidden lg:block  hover:underline"
-                    >
+                      className="w-6 h-6 text-sm  text-gray-600  hover:underline">
                       <path
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -144,6 +133,10 @@ export const Navbar = () => {
                       />
                     </svg>
                   </Link>
+                  <span
+                    className={`absolute bottom-10 bg-red-500 text-gray-200 rounded-full w-6 h-6 flex items-center justify-center `}>
+                    {totalCount}
+                  </span>
                 </div>
               </div>
             </div>
