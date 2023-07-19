@@ -6,7 +6,6 @@ import imagen4 from "../assets/4.webp";
 
 export const Carousel = () => {
   const slides = [imagen1, imagen2, imagen3, imagen4];
-
   const [imagenActual, setimagenActual] = useState(0);
   const cant = slides?.length;
   const intervalo = 3000;
@@ -23,6 +22,7 @@ export const Carousel = () => {
     }, 1000);
   };
 
+
   useEffect(() => {
     const timer = setInterval(() => {
       next();
@@ -36,7 +36,7 @@ export const Carousel = () => {
   if (!Array.isArray(slides) || cant === 0) return;
 
   return (
-    <div className="w-full h-full flex justify-center items-center mt-8">
+    <div className="w-full h-full flex justify-center items-center mt-8 px-2">
       <button
         onClick={prev}
         className="p-1 rounded-full bg-indigo-400/60 text-gray-200 hover:bg-white hover:text-indigo-600"
@@ -56,7 +56,7 @@ export const Carousel = () => {
       {slides.map((sli, index) => (
         <div className="max-w-full h-auto transition-transform ease-out duration-500" key={index}>
           {imagenActual === index && (
-            <div className="w-full h-full">
+            <div className="w-[90%] h-full">
               <img src={sli} alt={`Imagen ${index}`} className="w-[1000px] mx-8" />
             </div>
           )}
