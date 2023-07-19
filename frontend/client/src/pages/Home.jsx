@@ -1,15 +1,40 @@
 import { useSelector, useDispatch } from "react-redux";
 import { fetchProduct } from "../store/slices/products/productSlice";
-/* import  Carousel  from "../components/productdetail/Carousel"; */
+import { useEffect, useState } from "react";
+
 import { Carousel } from "../components/Carousel";
 import { ComponentHome } from "../components/ComponentHome";
 import { Categorias } from "../components/Categorias";
 import banner from "../assets/banner.png";
 
-import { getFirestore, collection, getDocs } from "firebase/firestore/lite";
-import { useEffect, useState } from "react";
+
+import { getFirestore, collection,updateDoc, getDocs } from "firebase/firestore/lite";
+import { db } from "../firebase/firebase";
 
 function Home() {
+  const addStockToProducts = async () => {
+    try {
+      const querydb = getFirestore();
+      const collectionRef = collection(querydb, "products");
+  
+      const querySnapshot = await getDocs(collectionRef);
+  
+      const batch = [];
+      querySnapshot.forEach((doc) => {
+        const stock = getRandomInt(0, 10);
+        const docRef = doc(db, "products", doc.id);
+        batch.push(updateDoc(docRef, { stock }));
+      });
+  
+      await Promise.all(batch);
+  
+      console.log("Atributo 'stock' agregado exitosamente a los documentos en la colección 'products'");
+    } catch (error) {
+      console.log("Error al agregar el atributo 'stock' a los documentos:", error);
+    }
+  };
+  
+  addStockToProducts();
   const {products} = useSelector(state => state.products);
   const dispatch = useDispatch()
   useEffect(()=>{
