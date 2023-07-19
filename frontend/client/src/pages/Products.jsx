@@ -5,6 +5,7 @@ import { PriceFilter } from "../components/PriceFilter";
 import useFirestoreData from "../hooks/useFirestoreData";
 import { useFilters } from "../hooks/useFilters";
 import BrandFilter from "../components/BrandFilter";
+import RatingFilter from "../components/RatingFilter";
 
 const Products = () => {
   const data = useFirestoreData("products");
@@ -19,6 +20,7 @@ const Products = () => {
       <div className="w-1/4 flex flex-col gap-4">
         <CategoryFilter />
         <PriceFilter />
+        <RatingFilter />
         <BrandFilter />
       </div>
       <ProductsCards result={result} />

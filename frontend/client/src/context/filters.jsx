@@ -7,7 +7,8 @@ export function FiltersProvider({ children }) {
     category: "",
     minPrice: 0,
     maxPrice: 1500,
-    brand: ""
+    brand: "",
+    rating: null
   });
 
   return (
