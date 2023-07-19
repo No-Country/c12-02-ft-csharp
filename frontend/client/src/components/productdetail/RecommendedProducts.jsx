@@ -26,9 +26,8 @@ const RecommendedProducts = ({ category }) => {
 
   const filteredProducts = data.filter(pro => pro.category === category);
 
-  console.log(filteredProducts);
   return (
-    <div className="flex transition-transform ease-out duration-500">
+    <div className="w-full h-[20%] justify-center flex flex-wrap gap-2">
       {filteredProducts && filteredProducts.map((pro, index) => <Card key={index} product={pro} />)}
     </div>
   );
