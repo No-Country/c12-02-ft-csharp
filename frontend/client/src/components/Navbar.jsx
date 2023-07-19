@@ -2,8 +2,13 @@ import { Menu } from "./Menu";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import UserMenu from "./UserMenu";
+import { useAuth } from "../context/authContext";
+import SearchFilter from "./SearchFilter";
 
 export const Navbar = () => {
+  const { user } = useAuth();
+
   const [isOpen, setIsOpen] = useState(false);
   const { totalCount } = useSelector(state => state.carts);
   const toogleOpen = () => {
@@ -37,30 +42,7 @@ export const Navbar = () => {
               LaTech-Shop
             </Link>
           </div>
-          <div className="relative hidden items-center md:block">
-            <input
-              type="text"
-              name="search"
-              id=""
-              className="py-2 px-2 rounded-md w-96 focus:outline-none"
-              placeholder="buscar"
-            />
-            <span className="text-gray-400 absolute md:right-3 top-3">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth="1.5"
-                stroke="currentColor"
-                className="w-5 h-5">
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
-                />
-              </svg>
-            </span>
-          </div>
+          <SearchFilter />
           <div className="flex items-center flex-row-reverse">
             <div className="cursor-pointer lg:hidden" onClick={toogleOpen}>
               <svg
@@ -86,26 +68,32 @@ export const Navbar = () => {
                   Mis compras
                 </a>
                 <div className="flex justify-end">
-                  <Link
-                    to="/login"
-                    className="inline-flex items-center  md:mr-2 gap-2 rounded-lg border border-indigo-600 bg-indigo-600 px-5 py-3 text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500"
-                    href="/download">
-                    <span className="text-sm font-medium">Ingresar</span>
+                  {user ? (
+                    <UserMenu />
+                  ) : (
+                    <Link
+                      to="/login"
+                      className="inline-flex items-center md:mr-2 gap-2 rounded-lg border border-indigo-600 bg-indigo-600 px-5 py-3 text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500"
+                      href="/download"
+                    >
+                      <span className="text-sm font-medium">Ingresar</span>
 
-                    <svg
-                      className="h-5 w-5 rtl:rotate-180 "
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor">
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M17 8l4 4m0 0l-4 4m4-4H3"
-                      />
-                    </svg>
-                  </Link>
+                      <svg
+                        className="h-5 w-5 rtl:rotate-180 "
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M17 8l4 4m0 0l-4 4m4-4H3"
+                        />
+                      </svg>
+                    </Link>
+                  )}
                 </div>
                 <div className="flex justify-end">
                   <Link to="/car" className="p-4">

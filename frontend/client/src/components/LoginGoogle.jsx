@@ -1,6 +1,27 @@
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../context/authContext";
+import { useState } from "react";
+
 function LoginGoogle() {
+  const { loginWithGoogle } = useAuth();
+
+  const navigate = useNavigate();
+  const [error, setError] = useState("");
+
+  console.log(error);
+
+  const handleGoogleSignin = async () => {
+    try {
+      await loginWithGoogle();
+      navigate("/");
+    } catch (error) {
+      setError(error.message);
+    }
+  };
+
   return (
     <button
+      onClick={handleGoogleSignin}
       type="submit"
       className="w-full items-center block px-10 py-3.5 text-base font-medium text-center text-blue-600 transition duration-500 ease-in-out transform border-2 border-white shadow-md rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
     >
