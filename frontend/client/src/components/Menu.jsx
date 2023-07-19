@@ -39,7 +39,7 @@ export const Menu = ({ openClose }) => {
           Mis compras
         </a>
         <Link
-          to={'/car'}
+          to={"/car"}
           className="hover:bg-gray-500 hover:text-gray-200 h-8 flex items-center mx-4 pl-2 mb-4 rounded-md"
         >
           Mi carrito
@@ -48,6 +48,9 @@ export const Menu = ({ openClose }) => {
         <div className="flex flex-col  gap-2 my-4">
           <ul>
             <p className=" h-8 flex items-center mx-4 pl-2 rounded-md">Categorias</p>
+            <Link to="/products" className="text-gray-900  hover:underline w-32">
+              Todo
+            </Link>
             <li>
               <a
                 href=""

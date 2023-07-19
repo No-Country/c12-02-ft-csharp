@@ -5,9 +5,8 @@ export const ComponentHome = ({ title, icon, reverse, products }) => {
   return (
     <>
       <div
-        className={`flex mt-4 items-center bg-gray-400 shadow-2xl ${
-          reverse && "flex-row-reverse"
-        }`}>
+        className={`flex mt-4 items-center bg-gray-400 shadow-2xl ${reverse && "flex-row-reverse"}`}
+      >
         <div className="flex flex-col w-[30%] items-center p-2">
           <p className="text-4xl font-bold">
             {title} <span className="text-4xl">{icon}</span>

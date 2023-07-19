@@ -51,7 +51,8 @@ export const Navbar = () => {
                 viewBox="0 0 24 24"
                 strokeWidth="1.5"
                 stroke="currentColor"
-                className="w-6 h-6 mr-4">
+                className="w-6 h-6 mr-4"
+              >
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -61,10 +62,11 @@ export const Navbar = () => {
             </div>
 
             <div className=" ml-2 pr-4 md:pr-8  ">
-              <div className="flex items-center justify-evenly md:w-[200px] lg:w-full">    
+              <div className="flex items-center justify-evenly md:w-[200px] lg:w-full">
                 <a
                   href="#"
-                  className="p-4 whitespace-nowrap text-sm  text-gray-600 hidden lg:block hover:underline">
+                  className="p-4 whitespace-nowrap text-sm  text-gray-600 hidden lg:block hover:underline"
+                >
                   Mis compras
                 </a>
                 <div className="flex justify-end">
@@ -103,7 +105,8 @@ export const Navbar = () => {
                       viewBox="0 0 24 24"
                       strokeWidth="1.5"
                       stroke="currentColor"
-                      className="w-6 h-6 text-sm  text-gray-600  hover:underline">
+                      className="w-6 h-6 text-sm  text-gray-600  hover:underline"
+                    >
                       <path
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -112,7 +115,8 @@ export const Navbar = () => {
                     </svg>
                   </Link>
                   <span
-                    className={`absolute bottom-10 bg-red-500 text-gray-200 rounded-full w-6 h-6 flex items-center justify-center `}>
+                    className={`absolute bottom-10 bg-red-500 text-gray-200 rounded-full w-6 h-6 flex items-center justify-center `}
+                  >
                     {totalCount}
                   </span>
                 </div>
@@ -124,6 +128,11 @@ export const Navbar = () => {
           <div className="max-w-screen-xl px-0 py-3  hidden sm:hidden lg:block">
             <div className="flex items-center">
               <ul className="flex  font-medium mx-auto gap-6 text-sm py-2 items-center w-[55%] justify-between">
+                <li>
+                  <Link to="/products" className="text-gray-900  hover:underline w-32">
+                    Todo
+                  </Link>
+                </li>
                 <li>
                   <a href="#" className="text-gray-900  hover:underline w-32">
                     Celulares
