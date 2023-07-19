@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { addProductToCart, removeProductToCart } from "../store/slices/carts/cartSlice";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import "./loading.css"
 
 export const Card = ({ product }) => {
   const { name, image, rating, category, price, id } = product;
@@ -19,20 +18,8 @@ export const Card = ({ product }) => {
     }
   };
 
- /*  if (!product) {
-    return (
-      <div className="sk-chase">
-        <div className="sk-chase-dot"></div>
-        <div className="sk-chase-dot"></div>
-        <div className="sk-chase-dot"></div>
-        <div className="sk-chase-dot"></div>
-        <div className="sk-chase-dot"></div>
-        <div className="sk-chase-dot"></div>
-      </div>
-    );
-  } */
   return (
-    <div className="m-4 lg:w-1/4 md:w-1/2 p-4 w-full  bg-gray-200 shadow-lg rounded-md">
+    <div className="m-4 w-[80%] md:w-[40%] lg:w-[20%] p-4 bg-gray-200 shadow-lg rounded-md">
       <div className="absolute z-10">
         <RiStarFill className="relative text-yellow-400 w-16 h-16 md:w-14 md:h-14  -top-[38px] md:-top-9 right-9" />
         <span

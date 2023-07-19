@@ -27,7 +27,7 @@ export const ComponentHome = ({ title, icon, reverse, products, loading }) => {
               <div className="sk-chase-dot"></div>
             </div>
           ) : (
-            <div className="flex flex-col  md:flex-row max-w-xs md:max-w-5xl transition-transform ease-out duration-500">
+            <div className="flex flex-col  md:flex-row md:justify-between max-w-xs md:max-w-5xl transition-transform ease-out duration-500">
               {products && products.map((pro, index) => <Card key={index} product={pro} />)}
             </div>
           )}
