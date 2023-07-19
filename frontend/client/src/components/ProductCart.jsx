@@ -1,60 +1,68 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import PropTypes from "prop-types";
-import { cantidadProductToCart, totalProductToCart } from "../store/slices/carts/cartSlice";
-export const ProductCart = ({ product, handleRemove, cantidad }) => {
+import {
+  cantidadProductToCart,
+  totalProductToCart,
+  incrementDecrement
+} from "../store/slices/carts/cartSlice";
+export const ProductCart = ({ product, handleRemove, handleRemoveToPay }) => {
   const dispatch = useDispatch();
-  const [isSelected, setIsSelected] = useState(false);
-  const [quantity, setQuantity] = useState(cantidad);
+  const [isSelected, setIsSelected] = useState(product.estado);
+  const [quantity, setQuantity] = useState(product.cantidad);
 
-  //console.log(product)
   const handleSelect = () => {
     setIsSelected(!isSelected);
+    if (isSelected) dispatch(handleRemoveToPay(product.product.id, product.estado));
   };
 
   const handleIncrement = () => {
-    setQuantity(quantity + 1);
+    dispatch(incrementDecrement({ id: product["product"].id, estado: true }));
+    setQuantity(product.cantidad);
   };
 
   const handleDecrement = () => {
-    if (quantity > 1) {
-      setQuantity(quantity - 1);
-    }
+    dispatch(incrementDecrement({ id: product["product"].id, estado: false }));
+    setQuantity(product.cantidad);
   };
 
   useEffect(() => {
+    setQuantity(product.cantidad);
+    setIsSelected(product.estado);
+  }, [handleRemove]);
+
+  useEffect(() => {
     if (isSelected) {
-      dispatch(cantidadProductToCart({ id: product.id, quantity, isSelected }));
+      dispatch(cantidadProductToCart({ id: product["product"].id, quantity, isSelected }));
       dispatch(totalProductToCart());
     }
-  }, [isSelected, quantity]);
+  }, [isSelected, quantity, dispatch]);
 
   return (
     <>
-      <div className="flex gap-4 my-4 bg-indigo-100 pl-4 py-4 pr-6 rounded-lg">
+      <div className="flex gap-4 my-4 bg-indigo-100 pl-4 py-2 md:py-4 pr-6 rounded-lg max-h-48">
         <input type="checkbox" name="" id="" checked={isSelected} onChange={handleSelect} />
-        <img
-          src={product.image}
-          alt=""
-          className="w-16 h-16 rounded-full border-4 border-indigo-600"
-        />
+        <div className=" max-w-[55px] max-h-14 rounded-full border-2 border-indigo-600 overflow-hidden">
+          <img
+            src={product.product.image}
+            alt=""
+            className="w-[100%] h-[80%] object-contain mx-auto mt-1 p-1"
+          />
+        </div>
         <div className="flex flex-col w-full">
           <div className="flex items-start justify-between w-full">
-            <h2>{product.name.substr(0, 20)} </h2>
+            <h2 className="text-xs lg:text-base">{product["product"].name.substr(0, 20)} </h2>
             <button
               onClick={() => {
-                setQuantity(cantidad);
-                handleRemove(product.id);
-              }}
-            >
+                handleRemove(product["product"].id);
+              }}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
                 strokeWidth="1.5"
                 stroke="currentColor"
-                className="w-4 h-4"
-              >
+                className="w-3 h-3 lg:w-4 lg:h-4">
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -64,7 +72,7 @@ export const ProductCart = ({ product, handleRemove, cantidad }) => {
             </button>
           </div>
           <div className="flex items-center justify-between w-full mt-2">
-            <h2>{product.price}</h2>
+            <h2 className="text-sm lg:text-base">{product["product"].price}</h2>
             <div className="flex gap-2">
               <button onClick={handleDecrement}>
                 <svg
@@ -78,7 +86,7 @@ export const ProductCart = ({ product, handleRemove, cantidad }) => {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M18 12H6" />
                 </svg>
               </button>
-              <span>{quantity}</span>
+              <span className="text-sm lg:text-base">{quantity}</span>
               <button onClick={handleIncrement}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -94,7 +102,6 @@ export const ProductCart = ({ product, handleRemove, cantidad }) => {
             </div>
           </div>
         </div>
-        {/* Resto del código... */}
       </div>
     </>
   );
@@ -103,5 +110,5 @@ export const ProductCart = ({ product, handleRemove, cantidad }) => {
 ProductCart.propTypes = {
   product: PropTypes.object.isRequired,
   handleRemove: PropTypes.func.isRequired,
-  cantidad: PropTypes.number.isRequired
+  handleRemoveToPay: PropTypes.func.isRequired
 };
