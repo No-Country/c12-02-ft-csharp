@@ -46,13 +46,9 @@ export const Carrito = () => {
 
         <div className="w-full md:w-[50%]  h-16 md:h-96 bg-indigo-200 mt-10 rounded-lg  flex justify-between  items-center mb:justify-evenly mb:sticky top-3 mb-4 flex-row md:flex-col ">
           <h2 className="text-3xl font-bold hidden md:block">Resumen</h2>
-          <div className={`overflow-y-auto w-full mb-4 ${
-                  windowWidth < 768 ? "hidden" : ""
-                }`}>
+          <div className={`overflow-y-auto w-full mb-4 ${windowWidth < 768 ? "hidden" : ""}`}>
             {pagarCarrito.map((item, index) => (
-              <div
-                key={index}
-                className="px-2 flex items-center justify-around w-full mb-4">
+              <div key={index} className="px-2 flex items-center justify-around w-full mb-4">
                 <div className="max-w-[55px] max-h-14 rounded-full border-2 border-indigo-600 overflow-hidden flex items-center">
                   <img
                     src={item.product?.image}
