@@ -3,12 +3,12 @@ import { FiltersContext } from "../context/filters";
 
 export function useFilters() {
   const { filters, setFilters } = useContext(FiltersContext);
-  // filters.rating = filters.rating || [];
+  console.log(filters)
 
   const filterProducts = products => {
     return products.filter(product => {
-      console.log(Math.round(product.rating));
       return (
+        (filters.name.length === 0 || (product.name && product.name.toLowerCase().includes(filters.name.toLowerCase()))) &&
         product.price >= filters.minPrice &&
         product.price <= filters.maxPrice &&
         (filters.category.length === 0 || filters.category.includes(product.category)) &&

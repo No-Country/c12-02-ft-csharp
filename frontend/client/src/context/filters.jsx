@@ -8,7 +8,8 @@ export function FiltersProvider({ children }) {
     minPrice: 0,
     maxPrice: 1500,
     brand: "",
-    rating: null
+    rating: null,
+    name: ""
   });
 
   return (

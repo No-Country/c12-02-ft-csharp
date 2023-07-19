@@ -14,8 +14,6 @@ const RatingFilter = () => {
     return contador;
   }, {});
 
-  console.log(ocurrencias);
-
   const numerosAgrupados = Object.entries(ocurrencias).map(([numero, cantidad]) => ({
     numero: parseInt(numero),
     cantidad
@@ -36,11 +34,11 @@ const RatingFilter = () => {
         {numerosAgrupados.map((item, index) => (
           <div
             key={index}
-            className="my-2 cursor-pointer"
+            className="cursor-pointer"
             data-value={item.numero}
             onClick={handleClick}
           >
-            <div className="flex gap-2">
+            <div className="flex gap-1">
               {Array(5)
                 .fill()
                 .map((_, i) => {
