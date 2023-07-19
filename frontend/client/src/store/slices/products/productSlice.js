@@ -5,6 +5,7 @@ import { db } from "../../../firebase/firebase";
 export const fetchProduct = () => {
   return async dispatch => {
     try {
+      dispatch(setLoading(true))
       const querySnapshop = await getDocs(collection(db, "products"));
       const products = [];
       querySnapshop.forEach(pro =>{
@@ -15,6 +16,7 @@ export const fetchProduct = () => {
       
     } catch (error) {
       console.log("error al obtener los productos"+error)
+      dispatch(setLoading(false))
     }
   };
 };
@@ -22,15 +24,20 @@ export const fetchProduct = () => {
 export const productSlice = createSlice({
   name: "products",
   initialState: {
-    products: []
+    products: [], 
+    loading:false,
   },
   reducers: {
     setProduct: (state, action) => {
       state.products = action.payload;
+      state.loading = false;
+    },
+    setLoading: (state,action) => {
+      state.loading = action.payload;
     }
   }
 });
 
-export const { setProduct } = productSlice.actions;
+export const { setProduct, setLoading } = productSlice.actions;
 
 export default productSlice.reducer;
