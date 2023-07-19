@@ -2,22 +2,23 @@ import PropTypes from "prop-types";
 import { Card } from "./Card";
 
 export const ComponentHome = ({ title, icon, reverse, products }) => {
+
   return (
     <>
       <div
-        className={`flex mt-4 items-center bg-gray-400 shadow-2xl ${reverse && "flex-row-reverse"}`}
-      >
-        <div className="flex flex-col w-[30%] items-center p-2">
-          <p className="text-4xl font-bold">
-            {title} <span className="text-4xl">{icon}</span>
+        className={`flex flex-col lg:flex-row mt-4 items-center bg-gray-400 shadow-2xl  ${
+          reverse && "flex-row-reverse"
+        }`}>
+        <div className="flex flex-col w-full lg:w-[20%] items-center p-2 ml-6 md:ml-0">
+          <p className="text-3xl lg:text-xl font-bold">
+            {title} <span className="text-3xl lg:text-xl">{icon}</span>
           </p>
-          <button className="bg-orange-600 text-white w-[40%] p-2 rounded-lg mt-4 text-xl">
+          <button className="bg-orange-600 text-white w-[50%] lg:w-full p-2 rounded-lg mt-4 text-xl">
             Ver más
           </button>
         </div>
-        <div className="flex items-center justify-between w-[80%] p-2">
-          <div className="flex transition-transform ease-out duration-500">
-            {products && products.map((pro, index) => <Card key={index} product={pro} />)}
+        <div className="w-full lg:w-[80%] p-2 flex justify-center">
+          <div className="flex flex-col  md:flex-row max-w-xs md:max-w-5xl transition-transform ease-out duration-500">
             {products && products.map((pro, index) => <Card key={index} product={pro} />)}
           </div>
         </div>
