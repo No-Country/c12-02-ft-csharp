@@ -50,7 +50,7 @@ const Products = () => {
           <div className="w-1/4 flex flex-col gap-4">
             <CategoryFilter />
             <PriceFilter />
-            <RatingFilter />
+            <RatingFilter filteredData={filteredProducts} />
             <BrandFilter />
           </div>
           <ProductsCards result={result} />
