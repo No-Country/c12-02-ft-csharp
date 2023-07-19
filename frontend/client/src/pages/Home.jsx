@@ -1,4 +1,5 @@
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { fetchProduct } from "../store/slices/products/productSlice";
 /* import  Carousel  from "../components/productdetail/Carousel"; */
 import { Carousel } from "../components/Carousel";
 import { ComponentHome } from "../components/ComponentHome";
@@ -9,9 +10,12 @@ import { getFirestore, collection, getDocs } from "firebase/firestore/lite";
 import { useEffect, useState } from "react";
 
 function Home() {
-  // const stateProducts = useSelector(state => state.products);
-  // const products = stateProducts.list.products;
-  // console.log(products)
+  const {products} = useSelector(state => state.products);
+  const dispatch = useDispatch()
+  useEffect(()=>{
+    dispatch(fetchProduct());
+  },[dispatch]);
+
 
   const [data, setData] = useState([]);
 
