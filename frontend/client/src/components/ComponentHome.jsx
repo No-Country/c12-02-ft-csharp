@@ -1,8 +1,7 @@
 import PropTypes from "prop-types";
 import { Card } from "./Card";
-
-export const ComponentHome = ({ title, icon, reverse, products }) => {
-
+import "./loading.css";
+export const ComponentHome = ({ title, icon, reverse, products, loading }) => {
   return (
     <>
       <div
@@ -18,9 +17,20 @@ export const ComponentHome = ({ title, icon, reverse, products }) => {
           </button>
         </div>
         <div className="w-full lg:w-[80%] p-2 flex justify-center">
-          <div className="flex flex-col  md:flex-row max-w-xs md:max-w-5xl transition-transform ease-out duration-500">
-            {products && products.map((pro, index) => <Card key={index} product={pro} />)}
-          </div>
+          {loading ? (
+            <div className="sk-chase m-32">
+              <div className="sk-chase-dot"></div>
+              <div className="sk-chase-dot"></div>
+              <div className="sk-chase-dot"></div>
+              <div className="sk-chase-dot"></div>
+              <div className="sk-chase-dot"></div>
+              <div className="sk-chase-dot"></div>
+            </div>
+          ) : (
+            <div className="flex flex-col  md:flex-row md:justify-between max-w-xs md:max-w-5xl transition-transform ease-out duration-500">
+              {products && products.map((pro, index) => <Card key={index} product={pro} />)}
+            </div>
+          )}
         </div>
       </div>
     </>
@@ -31,5 +41,6 @@ ComponentHome.propTypes = {
   title: PropTypes.string.isRequired,
   icon: PropTypes.string.isRequired,
   reverse: PropTypes.bool.isRequired,
-  products: PropTypes.array.isRequired
+  products: PropTypes.array.isRequired,
+  loading: PropTypes.bool.isRequired
 };

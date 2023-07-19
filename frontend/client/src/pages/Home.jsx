@@ -6,8 +6,9 @@ import { ComponentHome } from "../components/ComponentHome";
 import { Categorias } from "../components/Categorias";
 import banner from "../assets/banner.png";
 
+
 function Home() {
-  const { products } = useSelector(state => state.products);
+  const { products, loading } = useSelector(state => state.products);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchProduct());
@@ -24,6 +25,7 @@ function Home() {
         icon="🔥"
         reverse={false}
         products={products.slice(0, 4)}
+        loading={loading}
       />
       <div className="w-full bg-indigo-200 mt-4 h-[300px]">
         <img src={banner} alt="" className="w-full h-[300px]" />
@@ -33,6 +35,7 @@ function Home() {
         icon="💸"
         reverse={true}
         products={products.slice(4, 8)}
+        loading={loading}
       />
       <div className="w-full bg-indigo-400 mt-4 h-[300px]"></div>
       <ComponentHome
@@ -40,6 +43,7 @@ function Home() {
         icon="🌟"
         reverse={false}
         products={products.slice(8, 12)}
+        loading={loading}
       />
       <div className="w-full bg-indigo-200 mt-4 h-[300px]"></div>
     </>

@@ -57,12 +57,11 @@ const Products = () => {
         </div>
       ) : (
         <>
-          <div className="fixed bg-white z-10 flex shadow-lg">
+          <div className="fixed bg-white z-50 flex shadow-lg">
             <div
               className={`flex flex-col gap-2 ml-2 mt-2 transition-all duration-300 ${
                 openMenu ? "w-44" : "w-0"
-              }`}
-            >
+              }`}>
               <div className={`${openMenu ? "" : "hidden"}`}>
                 <CategoryFilter />
                 <PriceFilter />
