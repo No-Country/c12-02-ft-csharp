@@ -35,7 +35,7 @@ const ProductDetail = () => {
 
   return (
     <div>
-      <div className="bg-grey flex flex-col justify-center content-center px-0 sm:px-24 py-6 w-100">
+      <div className="bg-grey flex flex-col justify-center content-center px-5 sm:px-24 py-6 w-100">
         <p className="flex gap-5 text-gray-500 ml-5">
           <span>
             <FaLongArrowAltLeft className="cursor-pointer h-full items-center" />
@@ -45,7 +45,7 @@ const ProductDetail = () => {
         </p>
         <div className="flex flex-col md:flex-row ">
           <div className="bg-white flex flex-col w-100 py-14">
-            <div className="flex flex-col gap-5 md:flex-row w-100 mx-6 md:mx-16">
+            <div className="flex flex-col gap-5 md:flex-row w-100 md:mx-16">
               <div className="bg-white w-full md:w-3/6">
                 <Carousel images={data?.image} />
               </div>
@@ -59,7 +59,7 @@ const ProductDetail = () => {
                   description={data.description}
                 />
                 <div className="border-t-2 py-5 flex flex-wrap gap-5">
-                  <div className="py-2 px-5 border-2 flex gap-5 rounded-md">
+                  <div className="py-2 border-2 flex gap-5 rounded-md">
                     <span className="cursor-pointer" onClick={decrementar}>
                       -
                     </span>
