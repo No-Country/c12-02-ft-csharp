@@ -18,7 +18,7 @@ export const Card = ({ product }) => {
     }
   };
   return (
-    <div className="m-4 lg:w-1/4 md:w-1/2 p-4 w-full  bg-gray-200 shadow-lg rounded-md">
+    <div className="m-4 p-4 w-full  bg-gray-200 shadow-lg rounded-md">
       <div className="absolute">
         <RiStarFill className="relative text-yellow-400 w-14 h-14 -top-8 right-9" />
         <span className="relative bottom-[72px] text-[12px] -left-[14px] text-indigo-600">

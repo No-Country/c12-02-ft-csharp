@@ -8,6 +8,8 @@ import { Carrito } from "./components/Carrito";
 import ProductDetail from "./pages/ProductDetail";
 
 import { AuthProvider } from "./context/authContext";
+import Products from "./pages/Products";
+import { FiltersProvider } from "./context/filters";
 
 export function App() {
   return (
@@ -28,6 +30,14 @@ export function App() {
           </Layout>
         }
       />
+      <Route
+        path="/products"
+        element={
+          <Layout>
+            <Products />
+          </Layout>
+        }
+      />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/car" element={<Carrito />} />
@@ -40,7 +50,9 @@ export function WrappedApp() {
   return (
     <BrowserRouter>
       <AuthProvider>
-        <App />
+        <FiltersProvider>
+          <App />
+        </FiltersProvider>
       </AuthProvider>
     </BrowserRouter>
   );
