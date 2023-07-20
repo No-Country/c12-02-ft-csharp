@@ -4,13 +4,18 @@ import Carousel from "../components/productdetail/Carousel";
 import DescriptionAside from "../components/productdetail/DescriptionAside";
 import { AiOutlineShoppingCart, AiOutlineHeart } from "react-icons/ai";
 import { FaLongArrowAltLeft } from "react-icons/fa";
-// import { Card } from "../components/Card";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import RecommendedProducts from "../components/productdetail/RecommendedProducts";
 
 const ProductDetail = () => {
   const [data, setData] = useState({});
   const { id } = useParams();
+
+  const history = useNavigate();
+
+  const back = () => {
+    history(-1);
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -37,7 +42,7 @@ const ProductDetail = () => {
     <div>
       <div className="bg-grey flex flex-col justify-center content-center px-5 sm:px-24 py-6 w-100">
         <p className="flex gap-5 text-gray-500 ml-5">
-          <span>
+          <span onClick={back}>
             <FaLongArrowAltLeft className="cursor-pointer h-full items-center" />
           </span>
           | <span>{data.category}</span> |{" "}
