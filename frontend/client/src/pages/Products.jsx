@@ -22,6 +22,15 @@ const Products = () => {
 
   const [isComponentVisible, setIsComponentVisible] = useState(true);
 
+  const [currentPage, setCurrentPage] = useState(1);
+  const porPage = 8;
+
+  const indexOfLastProduct = currentPage * porPage;
+  const indexOfFirsProduct = indexOfLastProduct - porPage;
+  const currentProducts = result.slice(indexOfFirsProduct, indexOfLastProduct);
+
+  const paginacion = page => setCurrentPage(page);
+
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth <= 640) {
@@ -39,6 +48,12 @@ const Products = () => {
     };
   }, []);
 
+  useEffect(() => {
+    const maxPage = Math.ceil(result.length / porPage);
+    if (currentPage > maxPage) setCurrentPage(maxPage);
+    if (result.length === 0) setCurrentPage(1);
+  }, [currentPage, porPage, result.length]);
+
   const handleChange = () => {
     setOpenMenu(!openMenu);
   };
@@ -53,7 +68,23 @@ const Products = () => {
             <RatingFilter />
             <BrandFilter />
           </div>
-          <ProductsCards result={result} />
+          <div className="flex flex-col justify-between w-full h-[40%] gap-20">
+            <ProductsCards result={currentProducts} />
+            <div className="flex justify-center mt-4">
+              {Array.from({ length: Math.ceil(result.length / porPage) }).map((_, index) => (
+                <button
+                  key={index}
+                  className={`px-2 py-1 mx-1 rounded w-10 h-10 ${
+                    currentPage === index + 1
+                      ? "bg-indigo-500 text-white"
+                      : "bg-gray-300 text-gray-600"
+                  }`}
+                  onClick={() => paginacion(index + 1)}>
+                  {index + 1}
+                </button>
+              ))}
+            </div>
+          </div>
         </div>
       ) : (
         <>
@@ -78,7 +109,24 @@ const Products = () => {
             </div>
           </div>
           <div className="flex max-w-[1400px] mx-auto px-5 my-8">
-            <ProductsCards result={result} />
+            <div className="flex flex-col justify-between w-full">
+            <ProductsCards result={currentProducts} />
+            <div className="flex justify-center mt-4">
+              {Array.from({ length: Math.ceil(result.length / porPage) }).map((_, index) => (
+                <button
+                  key={index}
+                  className={`px-2 py-1 mx-1 rounded w-10 h-10 ${
+                    currentPage === index + 1
+                      ? "bg-indigo-500 text-white"
+                      : "bg-gray-300 text-gray-600"
+                  }`}
+                  onClick={() => paginacion(index + 1)}>
+                  {index + 1}
+                </button>
+              ))}
+            </div>
+
+            </div>
           </div>
         </>
       )}
