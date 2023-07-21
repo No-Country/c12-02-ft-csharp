@@ -27,7 +27,8 @@ export const Card = ({ product }) => {
             Number.isInteger(rating)
               ? "-left-[9px] md:-left-[13px] "
               : "-left-[14px] md:-left-[18px] "
-          } text-indigo-600`}>
+          } text-indigo-600`}
+        >
           {rating}
         </span>
       </div>
@@ -52,14 +53,16 @@ export const Card = ({ product }) => {
               onClick={() => handleAddOrRemoveProduct(id)}
               className={`rounded-full pt-[2px] pl-[6px] w-9 h-9 ${
                 carrito.find(pdt => pdt["product"].id === id) ? "bg-orange-500" : "bg-indigo-600"
-              }`}>
+              }`}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
                 strokeWidth="1.5"
                 stroke="currentColor"
-                className="w-6 h-6 text-gray-100 ">
+                className="w-6 h-6 text-gray-100 "
+              >
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -76,7 +79,8 @@ export const Card = ({ product }) => {
                   viewBox="0 0 24 24"
                   strokeWidth="1.5"
                   stroke="currentColor"
-                  className="w-6 h-6">
+                  className="w-6 h-6"
+                >
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"

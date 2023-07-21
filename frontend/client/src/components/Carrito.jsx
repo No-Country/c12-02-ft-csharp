@@ -3,6 +3,9 @@ import { useState, useEffect } from "react";
 import { ProductCart } from "./ProductCart";
 import { useSelector, useDispatch } from "react-redux";
 import { removeProductToCart, removeProductToPay } from "../store/slices/carts/cartSlice";
+import PaypalButton from "./PaypalButton";
+import { useAuth } from "../context/authContext";
+import PayPalButtonLogin from "./PaypalButtonLogin";
 
 export const Carrito = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -13,6 +16,10 @@ export const Carrito = () => {
   const handleRemoveProduct = productId => dispatch(removeProductToCart(productId));
   const handleClick = (productId, estado) =>
     dispatch(removeProductToPay({ id: productId, estado }));
+
+  const { user } = useAuth();
+
+  const totalValue = total.toFixed(2);
 
   useEffect(() => {
     const handleResize = () => {
@@ -25,6 +32,7 @@ export const Carrito = () => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
+
   return (
     <Layout>
       <div className=" flex flex-col md:flex-row gap-5 w-[90%] mx-auto">
@@ -44,7 +52,7 @@ export const Carrito = () => {
         </div>
         {/* Resumen */}
 
-        <div className="w-full md:w-[50%]  h-16 md:h-96 bg-indigo-200 mt-10 rounded-lg  flex justify-between  items-center mb:justify-evenly mb:sticky top-3 mb-4 flex-row md:flex-col ">
+        <div className="w-full md:w-[50%] md:h-96 bg-indigo-200 mt-10 rounded-lg  md:flex block justify-between  items-center mb:justify-evenly mb:sticky top-3 mb-4 flex-row md:flex-col ">
           <h2 className="text-3xl font-bold hidden md:block">Resumen</h2>
           <div className={`overflow-y-auto w-full mb-4 ${windowWidth < 768 ? "hidden" : ""}`}>
             {pagarCarrito.map((item, index) => (
@@ -70,9 +78,7 @@ export const Carrito = () => {
             <h3 className="text-lg ml-2 md:ml-0md:text-xl">Total a pagar:</h3>
             <span className="text-xl md:text-2xl">${total.toFixed(2)}</span>
           </div>
-          <button className="bg-orange-400 px-2 py-3  mr-2 md:mr-0 md:p-4 rounded-full md:rounded-none w-[22%] md:w-full text-base md:text-2xl text-gray-200 font-semibold">
-            Pagar
-          </button>
+          {user ? <PaypalButton totalValue={totalValue} /> : <PayPalButtonLogin />}
         </div>
       </div>
     </Layout>
