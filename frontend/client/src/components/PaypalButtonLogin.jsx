@@ -21,7 +21,7 @@ const PayPalButtonLogin = () => {
 
   return (
     <PayPalScriptProvider options={paypalOptions}>
-      <PayPalButtons style={paypalStyles} onClick={handlePaypalClick} />
+        <PayPalButtons style={paypalStyles} onClick={handlePaypalClick} />
     </PayPalScriptProvider>
   );
 };

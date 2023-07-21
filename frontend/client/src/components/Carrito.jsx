@@ -52,7 +52,7 @@ export const Carrito = () => {
         </div>
         {/* Resumen */}
 
-        <div className="w-full md:w-[50%] md:h-96 bg-indigo-200 mt-10 rounded-lg  md:flex block justify-between  items-center mb:justify-evenly mb:sticky top-3 mb-4 flex-row md:flex-col ">
+        <div className="w-full p-5 md:w-[50%] md:h-96 bg-indigo-200 mt-10 rounded-lg  md:flex block justify-between  items-center mb:justify-evenly mb:sticky top-3 mb-4 flex-row md:flex-col ">
           <h2 className="text-3xl font-bold hidden md:block">Resumen</h2>
           <div className={`overflow-y-auto w-full mb-4 ${windowWidth < 768 ? "hidden" : ""}`}>
             {pagarCarrito.map((item, index) => (
@@ -74,7 +74,7 @@ export const Carrito = () => {
             ))}
           </div>
 
-          <div className="flex items-center justify-evenly w-[70%] md:w-[80%]">
+          <div className="flex mb-5 items-center justify-evenly w-[70%] md:w-[80%]">
             <h3 className="text-lg ml-2 md:ml-0md:text-xl">Total a pagar:</h3>
             <span className="text-xl md:text-2xl">${total.toFixed(2)}</span>
           </div>

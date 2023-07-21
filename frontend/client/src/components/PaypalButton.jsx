@@ -37,7 +37,6 @@ const PayPalButton = ({ totalValue }) => {
 
   return (
     <PayPalScriptProvider options={paypalOptions}>
-      <div className="m-5">
         {isPaymentCompleted && <p>Pago completado. Gracias por su compra.</p>}
         {!isPaymentCompleted && (
           <PayPalButtons
@@ -46,7 +45,6 @@ const PayPalButton = ({ totalValue }) => {
             onApprove={(data, actions) => onApprove(data, actions)}
           />
         )}
-      </div>
     </PayPalScriptProvider>
   );
 };
