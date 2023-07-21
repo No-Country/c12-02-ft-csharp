@@ -1,22 +1,21 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { collection,getDocs } from "firebase/firestore/lite";
+import { collection, getDocs } from "firebase/firestore/lite";
 import { db } from "../../../firebase/firebase";
 
 export const fetchProduct = () => {
   return async dispatch => {
     try {
-      dispatch(setLoading(true))
+      dispatch(setLoading(true));
       const querySnapshop = await getDocs(collection(db, "products"));
       const products = [];
-      querySnapshop.forEach(pro =>{
-        products.push({id:pro.id, ...pro.data()})
-      })
-      
+      querySnapshop.forEach(pro => {
+        products.push({ id: pro.id, ...pro.data() });
+      });
+
       dispatch(setProduct(products));
-      
     } catch (error) {
-      console.log("error al obtener los productos"+error)
-      dispatch(setLoading(false))
+      console.log("error al obtener los productos" + error);
+      dispatch(setLoading(false));
     }
   };
 };
@@ -24,15 +23,15 @@ export const fetchProduct = () => {
 export const productSlice = createSlice({
   name: "products",
   initialState: {
-    products: [], 
-    loading:false,
+    products: [],
+    loading: false
   },
   reducers: {
     setProduct: (state, action) => {
       state.products = action.payload;
       state.loading = false;
     },
-    setLoading: (state,action) => {
+    setLoading: (state, action) => {
       state.loading = action.payload;
     }
   }

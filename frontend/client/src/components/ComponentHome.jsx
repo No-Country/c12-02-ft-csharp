@@ -7,7 +7,8 @@ export const ComponentHome = ({ title, icon, reverse, products, loading }) => {
       <div
         className={`flex flex-col lg:flex-row mt-4 items-center bg-gray-400 shadow-2xl  ${
           reverse && "flex-row-reverse"
-        }`}>
+        }`}
+      >
         <div className="flex flex-col w-full lg:w-[20%] items-center p-2 ml-6 md:ml-0">
           <p className="text-3xl lg:text-xl font-bold">
             {title} <span className="text-3xl lg:text-xl">{icon}</span>
