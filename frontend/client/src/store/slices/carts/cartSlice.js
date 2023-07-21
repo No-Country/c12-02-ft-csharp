@@ -36,6 +36,10 @@ export const cartSlice = createSlice({
       state.totalCount -= 1;
       state.carrito = state.carrito.filter(pro => pro["product"].id !== productId);
       state.pagarCarrito = state.pagarCarrito.filter(pro => pro.product.id !== productId);
+      state.total = state.pagarCarrito.reduce(
+        (acomulador, pro) => acomulador - pro.product.price * pro.cantidad,
+        0
+      );
       setItemFunc(state.carrito.map(item => item),state.total, state.totalCount)
     },
     removeProductToPay: (state, action) => {
