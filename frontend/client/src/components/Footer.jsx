@@ -4,24 +4,24 @@ import { MdEmail, MdPlace } from "react-icons/md";
 const Footer = () => {
   return (
     <>
-      <footer>
-        <div className="w-full bg-gray-500 h-auto">
+      <footer className="text-white">
+        <div className="w-full bg-[#222222] h-auto">
           <div className="h-full max-w-7xl mx-auto">
-            <div className="flex justify-evenly py-5 border-b-2 border-black">
+            <div className="flex justify-evenly py-5 border-b-2 border-white">
               <div className="flex flex-col items-center">
-                <div className="p-3 border-2 rounded-full">
+                <div className="p-3 bg-orange-600 border-2 rounded-full">
                   <FaPhoneAlt />
                 </div>
                 <span>(+65) 66538060</span>
               </div>
               <div className="flex flex-col items-center">
-                <div className="p-3 border-2 rounded-full">
+                <div className="p-3 bg-orange-600 border-2 rounded-full">
                   <MdEmail />
                 </div>
                 <span>correo@gmail.com</span>
               </div>
               <div className="flex flex-col items-center">
-                <div className="p-3 border-2 rounded-full">
+                <div className="p-3 bg-orange-600 border-2 rounded-full">
                   <MdPlace />
                 </div>
                 <span>Calle Primavera 123</span>
@@ -60,7 +60,7 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="bg-gray-300 w-full h-28">
+        <div className="bg-[#272727] w-full h-28">
           <div className="max-w-sm mx-auto px-5 h-full flex flex-col justify-between text-center">
             <div className="w-full flex justify-between mt-5 px-5">
               <button className="p-3 border-2 rounded-full">
