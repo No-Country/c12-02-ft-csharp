@@ -35,12 +35,12 @@ const ProductDetail = () => {
     setCount(count + 1);
   };
   const decrementar = () => {
-    setCount(count - 1);
+    if (count > 1) setCount(count - 1);
   };
 
   return (
-    <div>
-      <div className="bg-grey flex flex-col justify-center content-center px-5 sm:px-24 py-6 w-100">
+    <>
+      <div className="bg-grey flex flex-col justify-center px-4 pr-6 mt-4 w-full">
         <p className="flex gap-5 text-gray-500 ml-5">
           <span onClick={back}>
             <FaLongArrowAltLeft className="cursor-pointer h-full items-center" />
@@ -49,12 +49,12 @@ const ProductDetail = () => {
           <span>{data.name?.split(" ").slice(0, 5).join(" ")}</span>
         </p>
         <div className="flex flex-col md:flex-row ">
-          <div className="bg-white flex flex-col w-100 py-14">
-            <div className="flex flex-col gap-5 md:flex-row w-100 md:mx-16">
+          <div className="bg-white flex flex-col w-full py-14">
+            <div className="flex flex-col gap-5 md:flex-row w-full mr-10 md:mx-6 ">
               <div className="bg-white w-full md:w-3/6">
                 <Carousel images={data?.image} />
               </div>
-              <div className="bg-white w-full md:w-3/6">
+              <div className="bg-white w-full md:w-3/6 mr-5">
                 <DescriptionAside
                   name={data.name}
                   category={data.category}
@@ -83,12 +83,14 @@ const ProductDetail = () => {
                 </div>
               </div>
             </div>
-            <p className="font-bold my-5">Productos similares:</p>
-            <RecommendedProducts category={data.category} />
           </div>
         </div>
       </div>
-    </div>
+      <div className="flex flex-col w-[80%] md:w-full items-center mx-auto md:items-start p-2 ">
+        <p className="font-bold my-5">Productos similares:</p>
+        <RecommendedProducts category={data.category} />
+      </div>
+    </>
   );
 };
 

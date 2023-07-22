@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 
 const Carousel = ({ images }) => {
   const [indexImg, setIndexImg] = useState(0);
@@ -19,23 +20,27 @@ const Carousel = ({ images }) => {
   }, [indexImg]);
 
   return (
-    <div className="flex w-100 box-border">
-      <div className="w-1/6">
-        {images?.slice(0, 7).map((img, i) => (
-          <div className="w-auto flex justify-center items-center" key={i}>
+    <div className="flex flex-col-reverse md:flex-row w-full box-border ">
+      <div className="flex md:flex-col w-full md:w-1/6 justify-between">
+        {images?.slice(0, 5).map((img, i) => (
+          <div className="w-full flex justify-center items-center mt-10 md:mt-0" key={i}>
             <img
               src={img}
               alt={`Image - ${i}`}
-              className="w-16 h-16 object-contain p-2 m-2 cursor-pointer rounded border border-grey hover:border-ligthblue"
+              className="w-20 h-20 object-contain p-2 m-2 cursor-pointer rounded border border-grey hover:border-ligthblue"
               onMouseOver={() => changeImg(i)}
             />
           </div>
         ))}
       </div>
-      <div className="w-5/6 flex justify-center items-center">
+      <div className="w-full flex justify-center items-center">
         {RenderizarImg(images, indexImg)}
       </div>
     </div>
   );
 };
 export default Carousel;
+
+Carousel.propTypes = {
+  images: PropTypes.array.isRequired
+};
