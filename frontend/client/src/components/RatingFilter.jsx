@@ -1,12 +1,16 @@
+import { useContext } from "react";
+import { FiltersContext } from "../context/filters";
 import { useFilters } from "../hooks/useFilters";
 import useFirestoreData from "../hooks/useFirestoreData";
 import { BsStarFill, BsStar } from "react-icons/bs";
 
 const RatingFilter = () => {
-  const { setFilters } = useFilters();
+  const { setFilters } = useContext(FiltersContext);
+  const { filterProducts } = useFilters();
   const data = useFirestoreData("products");
+  const filteredData = filterProducts(data);
 
-  const rating = data.map(product => product.rating);
+  const rating = filteredData.map(product => product.rating);
 
   const ocurrencias = rating.reduce((contador, numero) => {
     const numeroEntero = Math.round(numero);

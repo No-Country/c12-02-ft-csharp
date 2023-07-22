@@ -29,7 +29,11 @@ export const cartSlice = createSlice({
     addProductToCart: (state, action) => {
       state.carrito = [...state.carrito, { product: action.payload, cantidad: 1, estado: false }];
       state.totalCount += 1;
-      setItemFunc(state.carrito.map(item => item),state.total, state.totalCount)
+      setItemFunc(
+        state.carrito.map(item => item),
+        state.total,
+        state.totalCount
+      );
     },
     removeProductToCart: (state, action) => {
       const productId = action.payload;
@@ -54,7 +58,11 @@ export const cartSlice = createSlice({
         });
         state.pagarCarrito.forEach(pro => (state.total += pro.product.price * pro.cantidad));
       }
-      setItemFunc(state.carrito.map(item => item),state.total, state.totalCount)
+      setItemFunc(
+        state.carrito.map(item => item),
+        state.total,
+        state.totalCount
+      );
     },
     incrementDecrement: (state, action) => {
       const { estado, id } = action.payload;
@@ -78,7 +86,11 @@ export const cartSlice = createSlice({
         }
         return pro;
       });
-      setItemFunc(state.carrito.map(item => item),state.total, state.totalCount)
+      setItemFunc(
+        state.carrito.map(item => item),
+        state.total,
+        state.totalCount
+      );
     },
     totalProductToCart: state => {
       state.pagarCarrito = state.carrito.filter(pro => pro.estado === true);
@@ -86,7 +98,11 @@ export const cartSlice = createSlice({
         (acomulador, pro) => acomulador + pro.product.price * pro.cantidad,
         0
       );
-      setItemFunc(state.carrito.map(item => item),state.total, state.totalCount)
+      setItemFunc(
+        state.carrito.map(item => item),
+        state.total,
+        state.totalCount
+      );
     },
 
     totalPayToCar: state => {
@@ -94,7 +110,11 @@ export const cartSlice = createSlice({
         (acomulador, pro) => acomulador + pro.product.price * pro.cantidad,
         0
       );
-      setItemFunc(state.carrito.map(item => item),state.total, state.totalCount)
+      setItemFunc(
+        state.carrito.map(item => item),
+        state.total,
+        state.totalCount
+      );
     }
   }
 });

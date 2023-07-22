@@ -65,7 +65,7 @@ const Products = () => {
           <div className="w-1/4 flex flex-col gap-4">
             <CategoryFilter />
             <PriceFilter />
-            <RatingFilter />
+            <RatingFilter filteredData={filteredProducts} />
             <BrandFilter />
           </div>
           <div className="flex flex-col justify-between w-full h-[40%] gap-20">
@@ -92,7 +92,8 @@ const Products = () => {
             <div
               className={`flex flex-col gap-2 ml-2 mt-2 transition-all duration-300 ${
                 openMenu ? "w-44" : "w-0"
-              }`}>
+              }`}
+            >
               <div className={`${openMenu ? "" : "hidden"}`}>
                 <CategoryFilter />
                 <PriceFilter />

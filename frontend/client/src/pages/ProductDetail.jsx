@@ -4,13 +4,18 @@ import Carousel from "../components/productdetail/Carousel";
 import DescriptionAside from "../components/productdetail/DescriptionAside";
 import { AiOutlineShoppingCart, AiOutlineHeart } from "react-icons/ai";
 import { FaLongArrowAltLeft } from "react-icons/fa";
-// import { Card } from "../components/Card";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import RecommendedProducts from "../components/productdetail/RecommendedProducts";
 
 const ProductDetail = () => {
   const [data, setData] = useState({});
   const { id } = useParams();
+
+  const history = useNavigate();
+
+  const back = () => {
+    history(-1);
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -37,7 +42,7 @@ const ProductDetail = () => {
     <>
       <div className="bg-grey flex flex-col justify-center px-4 pr-6 mt-4 w-full">
         <p className="flex gap-5 text-gray-500 ml-5">
-          <span>
+          <span onClick={back}>
             <FaLongArrowAltLeft className="cursor-pointer h-full items-center" />
           </span>
           | <span>{data.category}</span> |{" "}
@@ -59,7 +64,7 @@ const ProductDetail = () => {
                   description={data.description}
                 />
                 <div className="border-t-2 py-5 flex flex-wrap gap-5">
-                  <div className="py-2 px-5 border-2 flex gap-5 rounded-md">
+                  <div className="py-2 border-2 flex gap-5 rounded-md">
                     <span className="cursor-pointer" onClick={decrementar}>
                       -
                     </span>

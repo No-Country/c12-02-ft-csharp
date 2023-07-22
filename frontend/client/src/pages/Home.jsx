@@ -6,7 +6,6 @@ import { ComponentHome } from "../components/ComponentHome";
 import { Categorias } from "../components/Categorias";
 import banner from "../assets/banner.png";
 
-
 function Home() {
   const { products, loading } = useSelector(state => state.products);
   const dispatch = useDispatch();

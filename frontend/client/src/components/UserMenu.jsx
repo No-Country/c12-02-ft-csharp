@@ -15,7 +15,7 @@ const UserMenu = () => {
 
   return (
     <div>
-      <div onClick={() => setOpen(prev => !prev)} className="mr-5 cursor-pointer">
+      <div onClick={() => setOpen(prev => !prev)} className="cursor-pointer">
         <img
           src="https://randomuser.me/api/portraits/men/47.jpg"
           alt=""

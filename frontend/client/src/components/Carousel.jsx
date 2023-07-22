@@ -22,7 +22,6 @@ export const Carousel = () => {
     }, 1000);
   };
 
-
   useEffect(() => {
     const timer = setInterval(() => {
       next();

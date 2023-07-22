@@ -17,20 +17,24 @@ export const Categorias = () => {
             <p className="my-4 text-lg hidden md:block">Celulares</p>
           </div>
           <div className="flex flex-col  items-center max-w-lg">
-          <div className="flex items-center bg-white border-4 border-indigo-600 rounded-full w-56 h-56 md:w-40 md:h-40 shadow-lg">
+            <div className="flex items-center bg-white border-4 border-indigo-600 rounded-full w-56 h-56 md:w-40 md:h-40 shadow-lg">
               <img src={torre} className=" w-40 h-40 md:w-24 md:h-24 mx-auto" alt="computadores" />
             </div>
             <p className="my-4 text-lg hidden md:block">Computadores</p>
           </div>
           <div className="flex flex-col  items-center max-w-lg">
-          <div className="flex items-center bg-white border-4 border-indigo-600 rounded-full w-56 h-56 md:w-40 md:h-40 shadow-lg">
+            <div className="flex items-center bg-white border-4 border-indigo-600 rounded-full w-56 h-56 md:w-40 md:h-40 shadow-lg">
               <img src={tv} className=" w-40 h-40 md:w-24 md:h-24 mx-auto" alt="televisores" />
             </div>
             <p className="my-4 text-lg hidden md:block">Televisores</p>
           </div>
           <div className="flex flex-col  items-center max-w-lg">
-          <div className="flex items-center bg-white border-4 border-indigo-600 rounded-full w-56 h-56 md:w-40 md:h-40 shadow-lg">
-              <img src={conso} className=" w-40 h-40 md:w-24 md:h-24 mx-auto rounded-xl" alt="consolas y videojuegos" />
+            <div className="flex items-center bg-white border-4 border-indigo-600 rounded-full w-56 h-56 md:w-40 md:h-40 shadow-lg">
+              <img
+                src={conso}
+                className=" w-40 h-40 md:w-24 md:h-24 mx-auto rounded-xl"
+                alt="consolas y videojuegos"
+              />
             </div>
             <p className="my-4 text-lg hidden md:block ">Consolas y Videojuegos</p>
           </div>
