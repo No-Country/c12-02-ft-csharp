@@ -1,8 +1,29 @@
-<img align="center" src="https://res.cloudinary.com/dzm5lgpyv/image/upload/v1685399475/mercadolibre%20readme/Sin_t%C3%ADtulo_zky0wb.png">
+<img align="center" src="https://res.cloudinary.com/dlfwgaprv/image/upload/v1690031878/ecommerce/landing_wbi0nm.png">
 
-<h3>👉🏻 Clon de Mercado Libre realizado en equipo multidisciplinario como proyecto para No Country.</h3>
+<h3>👉🏻 Descripción:</h3>
+<p>LaTech-Shop es una plataforma de comercio electrónico dedicada a la venta de productos electrónicos. Esta plataforma proporciona a los usuarios una experiencia de compra sencilla y amigable, permitiéndoles explorar y adquirir una amplia gama de dispositivos electrónicos, desde teléfonos inteligentes y computadoras portátiles hasta accesorios y gadgets tecnológicos.
 
-<h3>👉🏻 <b>Deploy: <a href="https://mercadolibre-s8-08.netlify.app/">Mercado Libre</a></b></h3>
+Funcionalidades clave:
+
+Registro y inicio de sesión:
+LaTech-Shop permite a los usuarios crear cuentas personales para realizar compras y acceder a funciones personalizadas. Los usuarios pueden registrarse con una dirección de correo electrónico y contraseña, o usar sus cuentas de redes sociales para facilitar el proceso de registro.
+
+Filtro por categorías, precio, calificación y marca:
+La plataforma ofrece una funcionalidad de filtrado avanzada que permite a los usuarios encontrar productos específicos de manera rápida y sencilla. Pueden filtrar productos según categorías (como smartphones, laptops, cámaras, etc.), rango de precios, calificaciones de otros usuarios y marcas preferidas.
+
+Búsqueda rápida y eficiente:
+Además del filtrado, LaTech-Shop proporciona una barra de búsqueda intuitiva para que los usuarios encuentren productos con términos específicos y mejoren su experiencia de navegación.
+
+Carrito de compras:
+Los usuarios pueden agregar productos a su carrito de compras mientras navegan por el sitio web. Esta funcionalidad permite a los clientes revisar su selección antes de proceder al proceso de pago.
+
+Método de pago por PayPal:
+Para facilitar el proceso de pago y aumentar la seguridad, LaTech-Shop incorpora una pasarela de pago mediante PayPal. Los usuarios pueden realizar transacciones de forma rápida y segura utilizando sus cuentas de PayPal o sus tarjetas de crédito/débito vinculadas.
+
+Detalles de productos y calificaciones de usuarios:
+Cada producto en LaTech-Shop viene con una descripción detallada, especificaciones técnicas, imágenes y reseñas de clientes anteriores. Esto ayuda a los compradores a tomar decisiones informadas basadas en la experiencia de otros usuarios.</p>
+
+<h3>👉🏻 <b>Deploy: <a href="https://mercadolibre-s8-08.netlify.app/">LaTech-Shop</a></b></h3>
 
 <h3>
   <a href="https://www.canva.com/design/DAFkoByCqps/c3dW5Wi5SGx9Dscce5jhtw/watch?utm_content=DAFkoByCqps&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink"> 
@@ -15,7 +36,7 @@
 ### ⚡ Project links:
 
 <h3>
-  <a href="https://www.figma.com/file/wBg7krNaEDLmCy6ua9jH7C/Redise%C3%B1o-ML?type=design&node-id=0%3A1&t=6QNDxrDICbCIgEsn-1"> 
+  <a href="https://www.figma.com/file/Mhmj319ZB13QPz2jESCiIX/Untitled?type=design&node-id=0%3A1&mode=design&t=BCDIHrKdASGeNxev-1"> 
     <img src="https://img.shields.io/badge/Figma-%23F24E1E.svg?style=for-the-badge&logo=Figma&logoColor=white"/>
   </a> 
 </h3>
