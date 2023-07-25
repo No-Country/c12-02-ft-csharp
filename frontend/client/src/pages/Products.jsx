@@ -34,7 +34,6 @@ const Products = () => {
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth <= 640) {
-        // Cambia el tamaño mínimo de la pantalla según tus necesidades
         setIsComponentVisible(false);
       } else {
         setIsComponentVisible(true);
@@ -94,7 +93,7 @@ const Products = () => {
                 openMenu ? "w-44" : "w-0"
               }`}
             >
-              <div className={`${openMenu ? "" : "hidden"}`}>
+              <div className={`${openMenu ? "" : "hidden"} overflow-y-auto h-[calc(100vh-4rem)]`}>
                 <CategoryFilter />
                 <PriceFilter />
                 <RatingFilter />
