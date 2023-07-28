@@ -8,8 +8,7 @@
     "build": "vite build",
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "lint:fix": "prettier --write --ignore-path .gitignore .  &&  eslint --fix --ignore-path .gitignore .",
-    "test": "vitest"
+    "lint:fix": "prettier --write --ignore-path .gitignore .  &&  eslint --fix --ignore-path .gitignore ."
   },
   "dependencies": {
     "@paypal/react-paypal-js": "^8.1.0",
