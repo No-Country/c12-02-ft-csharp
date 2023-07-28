@@ -23,10 +23,10 @@ Para facilitar el proceso de pago y aumentar la seguridad, LaTech-Shop incorpora
 Detalles de productos y calificaciones de usuarios:
 Cada producto en LaTech-Shop viene con una descripción detallada, especificaciones técnicas, imágenes y reseñas de clientes anteriores. Esto ayuda a los compradores a tomar decisiones informadas basadas en la experiencia de otros usuarios.</p>
 
-<h3>👉🏻 <b>Deploy: <a href="https://mercadolibre-s8-08.netlify.app/">LaTech-Shop</a></b></h3>
+<h3>👉🏻 <b>Deploy: <a href="https://latech-shop.netlify.app/">LaTech-Shop</a></b></h3>
 
 <h3>
-  <a href="https://www.canva.com/design/DAFkoByCqps/c3dW5Wi5SGx9Dscce5jhtw/watch?utm_content=DAFkoByCqps&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink"> 
+  <a href="https://youtu.be/_rUVkR0YK-g"> 
     <img src="https://img.shields.io/badge/Video Preview%20-%231A237E.svg?&style=for-the-badge&logo=Canva&logoColor=white"/>
   </a>
 </h3>
@@ -60,10 +60,10 @@ Cada producto en LaTech-Shop viene con una descripción detallada, especificacio
 
 | **Antonio Guerrero**| **Adan Jimenez**|
 |:-:|:-:|
-| <a href="https://github.com/WarriorEnier"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/brajhanlopez/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> | <a href="https://github.com/adanj27"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/adan-jimenez-dev/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> |
+| <a href="https://github.com/WarriorEnier"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> | <a href="https://github.com/adanj27"><img src="https://img.shields.io/badge/github-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/></a> <a href="https://www.linkedin.com/in/adan-jimenez-dev/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> |
 
 ### 🎨 UX/UI:
 
 | **Pablo Cristaldo**|
 |:-:|
-|<a href="https://www.behance.net/eugeniaolmedo"><img src="https://img.shields.io/badge/Behance-1769ff?style=for-the-badge&logo=behance&logoColor=white"/></a>  <a href="https://www.linkedin.com/in/eugeniaolmedo/"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> |
+|<a href="https://www.linkedin.com/in/pablo-cristaldo-4489b1268"><img src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/></a> |
